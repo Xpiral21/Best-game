@@ -6,5 +6,6 @@ int cocojumbo;
 
 int cucu;
 private int gigel;
+int coconut;
 }
 
