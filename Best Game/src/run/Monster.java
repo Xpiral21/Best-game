@@ -1,5 +1,5 @@
 package run;
 
-public class Monster {
-int HP;
+public class Monster extends Character {
+
 }
