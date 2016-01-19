@@ -1,7 +1,7 @@
 package run;
 
 public class Character {
-int HP;
-int Mana;
-int [] skills;
+private int HP;
+private int Mana;
+private int [] skills;
 }
