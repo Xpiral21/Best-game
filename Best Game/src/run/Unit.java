@@ -1,13 +1,13 @@
 package run;
 
 public class Unit {
-	protected double hp;
-	protected double maxDamage;
-	protected double minDamage;
-	protected double defense;
-	protected double mana;
-	protected String name;
-	protected String description;
+	private double hp;
+	private double maxDamage;
+	private double minDamage;
+	private double defense;
+	private double mana;
+	private String name;
+	private String description;
 
 	public Unit(double hp, double maxDamage, double minDamage, double defense, double mana, String name) {
 		this.hp = hp;
@@ -76,11 +76,11 @@ public class Unit {
 		this.mana = mana;
 	}
 
-	protected double giveDmg() {
+	public double giveDmg() {
 		double randomDmg = minDamage + (Math.random() * ((maxDamage - minDamage) + 0.1));
 		return randomDmg;
 	}
-	protected double takeDmg(double h){
+	public double takeDmg(double h){
 		return hp=hp-h;
 	}
 
