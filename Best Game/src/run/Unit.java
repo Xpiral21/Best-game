@@ -76,13 +76,8 @@ public class Unit {
 		this.mana = mana;
 	}
 
-	protected double takeDmg() {
+	protected double giveDmg() {
 		double randomDmg = minDamage + (Math.random() * ((maxDamage - minDamage) + 0.1));
-		if (randomDmg > defense) {
-			hp = hp - (randomDmg - defense);
-		} else {
-			randomDmg = 0;
-		}
 		return randomDmg;
 	}
 
