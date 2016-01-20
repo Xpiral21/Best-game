@@ -4,8 +4,37 @@ public class Unit {
 	private double hp;
 	private double maxDamage;
 	private double minDamage;
-	private double defence;
+	private double defense;
 	private double mana;
+	private String name;
+	private String description;
+
+	public Unit(double hp, double maxDamage, double minDamage, double defense, double mana, String name,
+			String description) {
+		this.hp = hp;
+		this.maxDamage = maxDamage;
+		this.minDamage = minDamage;
+		this.defense = defense;
+		this.mana = mana;
+		this.name = name;
+		this.description = description;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public double getHp() {
 		return hp;
@@ -32,11 +61,11 @@ public class Unit {
 	}
 
 	public double getDefence() {
-		return defence;
+		return defense;
 	}
 
 	public void setDefence(double defence) {
-		this.defence = defence;
+		this.defense = defence;
 	}
 
 	public double getMana() {
