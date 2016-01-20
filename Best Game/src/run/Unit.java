@@ -1,22 +1,25 @@
 package run;
 
 public class Unit {
-	private double hp;
-	private double maxDamage;
-	private double minDamage;
-	private double defense;
-	private double mana;
-	private String name;
-	private String description;
+	protected double hp;
+	protected double maxDamage;
+	protected double minDamage;
+	protected double defense;
+	protected double mana;
+	protected String name;
+	protected String description;
 
-	public Unit(double hp, double maxDamage, double minDamage, double defense, double mana, String name,
-			String description) {
+	public Unit(double hp, double maxDamage, double minDamage, double defense, double mana, String name) {
 		this.hp = hp;
 		this.maxDamage = maxDamage;
 		this.minDamage = minDamage;
 		this.defense = defense;
 		this.mana = mana;
 		this.name = name;
+		
+	}
+
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -32,9 +35,6 @@ public class Unit {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 	public double getHp() {
 		return hp;
@@ -60,12 +60,12 @@ public class Unit {
 		this.minDamage = minDamage;
 	}
 
-	public double getDefence() {
+	public double getDefense() {
 		return defense;
 	}
 
-	public void setDefence(double defence) {
-		this.defense = defence;
+	public void setDefense(double defense) {
+		this.defense = defense;
 	}
 
 	public double getMana() {
@@ -75,13 +75,13 @@ public class Unit {
 	public void setMana(double mana) {
 		this.mana = mana;
 	}
-	
-	protected double takeDmg(){
-		double randomDmg=minDamage+(Math.random() * ((maxDamage - minDamage) + 0.1));
-		if (randomDmg>defense){
-			hp=hp-(randomDmg-defense);
-		}else{
-			randomDmg=0;
+
+	protected double takeDmg() {
+		double randomDmg = minDamage + (Math.random() * ((maxDamage - minDamage) + 0.1));
+		if (randomDmg > defense) {
+			hp = hp - (randomDmg - defense);
+		} else {
+			randomDmg = 0;
 		}
 		return randomDmg;
 	}
