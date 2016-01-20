@@ -80,5 +80,8 @@ public class Unit {
 		double randomDmg = minDamage + (Math.random() * ((maxDamage - minDamage) + 0.1));
 		return randomDmg;
 	}
+	protected double takeDmg(double h){
+		return hp=hp-h;
+	}
 
 }
