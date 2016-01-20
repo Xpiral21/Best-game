@@ -77,7 +77,7 @@ public class Unit {
 	}
 	
 	protected double takeDmg(){
-		double randomDmg=minDamage+(Math.random() * ((maxDamage - minDamage) + 1));
+		double randomDmg=minDamage+(Math.random() * ((maxDamage - minDamage) + 0.1));
 		if (randomDmg<defense){
 			hp=hp-(randomDmg-defense);
 		}else{
