@@ -16,7 +16,7 @@ public class Unit {
 		this.defense = defense;
 		this.mana = mana;
 		this.name = name;
-		
+
 	}
 
 	public void setDescription(String description) {
@@ -34,7 +34,6 @@ public class Unit {
 	public String getDescription() {
 		return description;
 	}
-
 
 	public int getHp() {
 		return hp;
@@ -77,11 +76,17 @@ public class Unit {
 	}
 
 	public int giveDmg() {
-		int randomDmg = minDamage + (int)(Math.random() * ((maxDamage - minDamage) + 1));
+		int randomDmg = minDamage + (int) (Math.random() * ((maxDamage - minDamage) + 1));
 		return randomDmg;
 	}
-	public int takeDmg(int h){
-		return hp=hp-h;
+
+	public int takeDmg(int h) {
+		return hp = hp - h;
 	}
 
+	public int useSkill(Skill bubu) {
+		mana = mana - bubu.getManaCost();
+		int randomDmg = bubu.getMinDamage() + (int) (Math.random() * ((bubu.getMaxDamage() - bubu.getMinDamage()) + 1));
+		return randomDmg;
+	}
 }
