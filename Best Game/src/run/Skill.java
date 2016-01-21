@@ -9,7 +9,7 @@ public class Skill {
 
 	public Skill(int minDamage, int maxDamage, int manaCost, String name) {
 		description = "The skill " + name + " does betwwen " + minDamage + "-" + maxDamage + " and costs " + manaCost
-				+ " Mana.";
+				+ " Mana";
 		this.minDamage = minDamage;
 		this.manaCost = manaCost;
 		this.maxDamage = maxDamage;
