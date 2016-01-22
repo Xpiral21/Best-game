@@ -1,4 +1,4 @@
-package src.run;
+package run;
 
 public class Monster extends Unit {
 	public Monster(int hp, int maxDamage, int minDamage, int defense, int mana, String name) {

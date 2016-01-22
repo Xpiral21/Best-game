@@ -1,4 +1,4 @@
-package src.run;
+package run;
 
 public class Skill {
 	private int minDamage;
