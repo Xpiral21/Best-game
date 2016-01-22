@@ -1,4 +1,4 @@
-package src;
+package src.run;
 
 public class Unit {
 	private int hp;

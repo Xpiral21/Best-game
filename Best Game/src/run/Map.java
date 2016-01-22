@@ -1,4 +1,4 @@
-package src;
+package src.run;
 
 public class Map {
 	private int map[][] = new int[10][10];
