@@ -7,14 +7,8 @@ public class Monster extends Unit {
 		setDescription("The " + name + " does between " + minDamage + "-" + maxDamage + " and has " + hp + " HP");
 	}
 
-	public Monster randomMonster() {
-		final int life = (int) (Math.random() * 100) + 100;
-		final int maxDamage = (int) (Math.random() * 10) + 10;
-		final int minDamage = (int) (Math.random() * 5) + 5;
-		final int defense = (int) (Math.random() * 3) + 5;
-		final int mana = 100;
-		final String name = "Test";
-		return new Monster(life, minDamage, maxDamage, defense, mana, name);
+	public String toString() {
+		return getDescription();
 	}
 
 }
