@@ -9,8 +9,7 @@ public class SimplePlayer {
 	    FileInputStream fis = new FileInputStream("lib/MelodiaEpica.mp3");
 	    Player playMP3 = new Player(fis);
 
-	    playMP3.play();
-
+	    playMP3.play(); 
 	    }catch(Exception e){System.out.println(e);}
 }
 }
