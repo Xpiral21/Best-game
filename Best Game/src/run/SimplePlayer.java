@@ -1,15 +1,20 @@
 package run;
+
 import javazoom.jl.player.*;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class SimplePlayer {
-	public SimplePlayer(){
-	try{
+	public SimplePlayer() {
+		try {
 
-	    FileInputStream fis = new FileInputStream("lib/MelodiaEpica.mp3");
-	    Player playMP3 = new Player(fis);
+			FileInputStream fis = new FileInputStream("lib/MelodiaEpica.mp3");
+			Player playMP3 = new Player(fis);
 
-	    playMP3.play(); 
-	    }catch(Exception e){System.out.println(e);}
-}
+			playMP3.play();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 }
