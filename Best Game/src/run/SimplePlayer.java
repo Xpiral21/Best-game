@@ -1,3 +1,4 @@
+
 package run;
 
 import java.io.FileInputStream;
@@ -17,4 +18,3 @@ public class SimplePlayer {
 			System.out.println(e);
 		}
 	}
-}
