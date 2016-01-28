@@ -1,8 +1,8 @@
 package run;
 
-import javazoom.jl.player.*;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
+import javazoom.jl.player.Player;
 
 public class SimplePlayer {
 	public SimplePlayer() {

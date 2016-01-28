@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="run.Map" project="Best Game" file="/Best Game/src/run/Map.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="164" y="223"/>    
+    <position height="-1" width="-1" x="80" y="141"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="run.Skill" project="Best Game" file="/Best Game/src/run/Skill.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="333" width="163" x="551" y="61"/>    
+    <position height="333" width="163" x="435" y="24"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="run.Monster" project="Best Game" file="/Best Game/src/run/Monster.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="86" width="171" x="599" y="417"/>    
+    <position height="86" width="171" x="375" y="374"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,26 +30,17 @@
   </class>  
   <class id="4" language="java" name="run.Unit" project="Best Game" file="/Best Game/src/run/Unit.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="381" y="395"/>    
+    <position height="-1" width="-1" x="266" y="279"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="5" language="java" name="run" project="Best Game" file="/Best Game/src/run" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="57" width="144" x="316" y="6"/>    
-    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <generalization id="6">    
+  <generalization id="5">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <dependency id="7">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
