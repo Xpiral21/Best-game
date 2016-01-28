@@ -27,7 +27,7 @@ public class Hero extends Unit {
 		return random.nextInt(getMaxDamage() - getMinDamage() + 1) + getMinDamage();
 	}
 
-	@Override
+
 	int useSkill(String skillName) {
 
 		int skillDamage = heroSkills.fury(getMaxDamage());

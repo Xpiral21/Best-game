@@ -29,7 +29,6 @@ public abstract class Unit {
 
 	abstract int attack();
 	
-	abstract int useSkill(String skillName);
 
 	abstract void defend(Object obj, String attackType);
 

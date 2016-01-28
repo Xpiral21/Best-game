@@ -15,16 +15,12 @@ public class Monster extends Unit {
 		return random.nextInt(getMaxDamage() - getMinDamage() + 1) + getMinDamage();
 	}
 
-	@Override
-	int useSkill() {
 
-		int skillDamage = monsterSkills.fury(getMaxDamage());
-		return skillDamage;
-	}
+	
 
 	@Override
-	void defend(Object hero, char attackType) {
-		if (attackType=='a'){
+	void defend(Object hero, String attackType) {
+		if (attackType.equals("a")){
 		int attackStrengthNormal = ((Hero) hero).attack();
 
 		int remainingHitPoints = (getCurrentHitPoints() > attackStrengthNormal)
@@ -35,7 +31,7 @@ public class Monster extends Unit {
 		}
 		else
 		{
-			int attackStrengthSkill=useSkill();
+			int attackStrengthSkill=((Hero) hero).useSkill(attackType);
 			int remainingHitPoints = (getCurrentHitPoints() > attackStrengthSkill)
 					? (getCurrentHitPoints() + getArmor()) - attackStrengthSkill : 0;
 
