@@ -1,4 +1,5 @@
 package run;
+
 import java.util.Random;
 
 public abstract class Unit {
@@ -28,9 +29,6 @@ public abstract class Unit {
 	// abstract methods shared between all UNITS
 
 	abstract int attack();
-	
-
-	abstract void defend(Object obj, String attackType);
 
 	abstract void heal();
 

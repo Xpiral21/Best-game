@@ -1,4 +1,5 @@
 package run;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,17 +28,15 @@ public class Hero extends Unit {
 		return random.nextInt(getMaxDamage() - getMinDamage() + 1) + getMinDamage();
 	}
 
-
 	int useSkill(String skillName) {
 
 		int skillDamage = heroSkills.fury(getMaxDamage());
 		return skillDamage;
 	}
 
-	@Override
-	void defend(Object monster, String attackType) {
+	void defend(Monster monster, String attackType) {
 		if (attackType.equals("a")) {
-			int attackStrengthNormal = ((Monster) monster).attack();
+			int attackStrengthNormal = monster.attack();
 
 			int remainingHitPoints = (getCurrentHitPoints() > attackStrengthNormal)
 					? (getCurrentHitPoints() + getArmor()) - attackStrengthNormal : 0;
@@ -45,8 +44,8 @@ public class Hero extends Unit {
 			setCurrentHitPoints(remainingHitPoints);
 			System.out.printf(" " + getName() + " is hit for %d HP of damage-%d armor (%s)\n", attackStrengthNormal,
 					getArmor(), getStatus());
-			
-		} else if (attackType=="fury"){
+
+		} else if (attackType == "fury") {
 			int attackStrengthSkill = heroSkills.fury(getMaxDamage());
 			int remainingHitPoints = (getCurrentHitPoints() > attackStrengthSkill)
 					? (getCurrentHitPoints() + getArmor()) - attackStrengthSkill : 0;
