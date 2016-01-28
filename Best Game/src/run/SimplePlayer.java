@@ -18,3 +18,4 @@ public class SimplePlayer {
 			System.out.println(e);
 		}
 	}
+}
