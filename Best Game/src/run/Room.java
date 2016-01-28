@@ -10,8 +10,8 @@ public class Room {
 
 	}
 
-	public boolean roomIsClear() {
-		if (monster.getHp() < 1)
+	public boolean roomIsClear(Monster m) {
+		if (m.isAlive())
 			return true;
 		return false;
 	}

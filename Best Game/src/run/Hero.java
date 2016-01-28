@@ -36,7 +36,7 @@ public class Hero extends Unit {
 
 	@Override
 	void defend(Object monster, String attackType) {
-		if (attackType == "a") {
+		if (attackType.equals("a")) {
 			int attackStrengthNormal = ((Monster) monster).attack();
 
 			int remainingHitPoints = (getCurrentHitPoints() > attackStrengthNormal)

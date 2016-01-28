@@ -18,7 +18,7 @@ public class Monster extends Unit {
 
 	
 
-	@Override
+
 	void defend(Object hero, String attackType) {
 		if (attackType.equals("a")){
 		int attackStrengthNormal = ((Hero) hero).attack();
