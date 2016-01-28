@@ -1,92 +1,112 @@
 package run;
+import java.util.Random;
 
-public class Unit {
-	private int hp;
-	private int maxDamage;
+public abstract class Unit {
+
+	private String name; // Thor- constructor
+	private String description; // God of Thunder-builder constructor
+	private int maxHitPoints;// -builder constructor
+	private int currentHitPoints;
+	private int armor; // reduces damage;
+	private int maxDamage;// -builder constructor
 	private int minDamage;
-	private int defense;
+	private int evasion; // percentage of miss
 	private int mana;
-	private String name;
-	private String description;
 
-	public Unit(int hp, int maxDamage, int minDamage, int defense, int mana, String name) {
-		this.hp = hp;
+	public Unit(String name, String description, int maxHitPoints, int currentHitPoints, int armor, int maxDamage,
+			int minDamage, int evasion) {
+		this.name = name;
+		this.description = description;
+		this.maxHitPoints = maxHitPoints;
+		this.currentHitPoints = currentHitPoints;
+		this.armor = armor;
 		this.maxDamage = maxDamage;
 		this.minDamage = minDamage;
-		this.defense = defense;
-		this.mana = mana;
-		this.name = name;
-
+		this.evasion = evasion;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+	// abstract methods shared between all UNITS
+
+	abstract int attack();
+	
+	abstract int useSkill(String skillName);
+
+	abstract void defend(Object obj, String attackType);
+
+	abstract void heal();
+
+	abstract boolean isAlive();
+
+	abstract void surrender();
+
+	abstract String getStatus(); // return currentHitpoints
+
+	public final Random random = new Random();
+
+	// end abstract methods shared between all UNITS
+
+	// getters
 
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
-	public int getHp() {
-		return hp;
+	public int getMaxHitPoints() {
+		return maxHitPoints;
 	}
 
-	public void setHp(int hp) {
-		this.hp = hp;
+	public int getCurrentHitPoints() {
+		return currentHitPoints;
+	}
+
+	public int getArmor() {
+		return armor;
 	}
 
 	public int getMaxDamage() {
 		return maxDamage;
 	}
 
-	public void setMaxDamage(int maxDamage) {
-		this.maxDamage = maxDamage;
-	}
-
 	public int getMinDamage() {
 		return minDamage;
 	}
 
-	public void setMinDamage(int minDamage) {
-		this.minDamage = minDamage;
-	}
-
-	public int getDefense() {
-		return defense;
-	}
-
-	public void setDefense(int defense) {
-		this.defense = defense;
+	public int getEvasion() {
+		return evasion;
 	}
 
 	public int getMana() {
 		return mana;
 	}
 
-	public void setMana(int mana) {
-		this.mana = mana;
+	// end getters
+
+	// begin setters
+
+	public void setCurrentHitPoints(int currentHitPoints) {
+		this.currentHitPoints = currentHitPoints;
 	}
 
-	public int giveDmg() {
-		int randomDmg = minDamage + (int) (Math.random() * ((maxDamage - minDamage) + 1));
-		return randomDmg;
+	public void setArmor(int armor) {
+		this.armor = armor;
 	}
 
-	public int takeDmg(int h) {
-		return hp = hp - h;
+	public void setMaxDamage(int maxDamage) {
+		this.maxDamage = maxDamage;
 	}
 
-	public int useSkill(Skill bubu) {
-		mana = mana - bubu.getManaCost();
-		int randomDmg = bubu.getMinDamage() + (int) (Math.random() * ((bubu.getMaxDamage() - bubu.getMinDamage()) + 1));
-		return randomDmg;
+	public void setMinDamage(int minDamage) {
+		this.minDamage = minDamage;
 	}
+
+	public void setEvasion(int evasion) {
+		this.evasion = evasion;
+	}
+
+	// end setters
+
 }
