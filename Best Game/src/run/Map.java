@@ -28,7 +28,7 @@ public class Map {
 				if (random > 95) {
 					map[i][j] = new Room("Trader", chichi);
 				} else if (random > 25) {
-					map[i][j] = new Room("Spooky Monster",);
+					map[i][j] = new Room("Spooky Monster");
 				} else if (random <= 25) {
 					map[i][j] = new Room();
 				}
