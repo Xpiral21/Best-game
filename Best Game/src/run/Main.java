@@ -11,7 +11,6 @@ public class Main {
 			}
 				System.out.println();
 			}
-	System.out.println(	m.getRoom(3, 3).getMonster().toString());
-	}
+	System.out.println(	m.getRoom(2, 3).getRoomDescription());
 
-}
+}}
