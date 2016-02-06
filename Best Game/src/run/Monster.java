@@ -5,8 +5,8 @@ public class Monster extends Unit {
 	Skills monsterSkills;
 
 	public Monster(String name, String description, int maxHitPoints, int currentHitPoints, int armor, int maxDamage,
-			int minDamage, int evasion) {
-		super(name, description, maxHitPoints, currentHitPoints, armor, maxDamage, minDamage, evasion);
+			int minDamage, int evasion,int accuracy) {
+		super(name, description, maxHitPoints, currentHitPoints, armor, maxDamage, minDamage, evasion,accuracy);
 		monsterSkills = new MonsterSkills();
 
 	}

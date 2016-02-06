@@ -13,9 +13,9 @@ public abstract class Unit {
 	private int minDamage;
 	private int evasion; // percentage of miss
 	private int mana;
-
+    private int accuracy;
 	public Unit(String name, String description, int maxHitPoints, int currentHitPoints, int armor, int maxDamage,
-			int minDamage, int evasion) {
+			int minDamage, int evasion,int accuracy) {
 		this.name = name;
 		this.description = description;
 		this.maxHitPoints = maxHitPoints;
@@ -24,6 +24,7 @@ public abstract class Unit {
 		this.maxDamage = maxDamage;
 		this.minDamage = minDamage;
 		this.evasion = evasion;
+		this.accuracy=accuracy;
 	}
 
 	// abstract methods shared between all UNITS
