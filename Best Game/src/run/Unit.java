@@ -13,9 +13,10 @@ public abstract class Unit {
 	private int minDamage;
 	private int evasion; // percentage of miss
 	private int mana;
-    private int accuracy;
+	private int accuracy;
+
 	public Unit(String name, String description, int maxHitPoints, int currentHitPoints, int armor, int maxDamage,
-			int minDamage, int evasion,int accuracy) {
+			int minDamage, int evasion, int accuracy) {
 		this.name = name;
 		this.description = description;
 		this.maxHitPoints = maxHitPoints;
@@ -24,7 +25,7 @@ public abstract class Unit {
 		this.maxDamage = maxDamage;
 		this.minDamage = minDamage;
 		this.evasion = evasion;
-		this.accuracy=accuracy;
+		this.accuracy = accuracy;
 	}
 
 	// abstract methods shared between all UNITS
@@ -42,11 +43,18 @@ public abstract class Unit {
 	public final Random random = new Random();
 
 	// end abstract methods shared between all UNITS
-
+	int getDmgReduction() {
+		int dmgRed = (armor * 99) / (armor + 200) + 1;
+		return dmgRed;
+	}
 	// getters
 
 	public String getName() {
 		return name;
+	}
+
+	public int getAccuracy() {
+		return accuracy;
 	}
 
 	public String getDescription() {
