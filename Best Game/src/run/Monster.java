@@ -4,9 +4,9 @@ public class Monster extends Unit {
 
 	Skills monsterSkills;
 
-	public Monster(String name, String description, int maxHitPoints, int currentHitPoints, int armor, int maxDamage,
-			int minDamage, int evasion,int accuracy) {
-		super(name, description, maxHitPoints, currentHitPoints, armor, maxDamage, minDamage, evasion,accuracy);
+	public Monster(String name, int maxHitPoints, int currentHitPoints, int armor, int maxDamage, int minDamage,
+			int evasion, int accuracy) {
+		super(name, maxHitPoints, currentHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
 		monsterSkills = new MonsterSkills();
 
 	}
@@ -14,27 +14,6 @@ public class Monster extends Unit {
 	@Override
 	int attack() {
 		return random.nextInt(getMaxDamage() - getMinDamage() + 1) + getMinDamage();
-	}
-
-	void defend(Hero hero, String attackType) {
-		if (attackType.equals("a")) {
-			int attackStrengthNormal = hero.attack();
-
-			int remainingHitPoints = (getCurrentHitPoints() > attackStrengthNormal)
-					? (getCurrentHitPoints() + getArmor()) - attackStrengthNormal : 0;
-
-			setCurrentHitPoints(remainingHitPoints);
-			System.out.printf(" " + getName() + " is hit for %d HP of damage-%d armor (%s)\n", attackStrengthNormal,
-					getArmor(), getStatus());
-		} else {
-			int attackStrengthSkill = ((Hero) hero).useSkill(attackType);
-			int remainingHitPoints = (getCurrentHitPoints() > attackStrengthSkill)
-					? (getCurrentHitPoints() + getArmor()) - attackStrengthSkill : 0;
-
-			setCurrentHitPoints(remainingHitPoints);
-			System.out.printf(" " + getName() + " is hit for %d HP of damage-%d armor (%s)\n", attackStrengthSkill,
-					getArmor(), getStatus());
-		}
 	}
 
 	/*

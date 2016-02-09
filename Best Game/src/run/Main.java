@@ -12,8 +12,10 @@ public class Main {
 			System.out.println();
 		}
 		System.out.println(m.getRoom(2, 3).getRoomDescription());
-		Monster jedy = new Monster("Loki", "Lord of Jotunheim", 800, 800, 50, 75, 20, 10, 10);
+		Unit jedy = new Monster("Loki", 800, 800, 50, 75, 20, 10, 10);
 		System.out.println(jedy.getArmor());
 		System.out.println(jedy.getDmgReduction());
+		jedy.attack();
+		
 	}
 }

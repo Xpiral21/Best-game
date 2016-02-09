@@ -17,9 +17,9 @@ public class Hero extends Unit {
 		this.numPotions = numPotions;
 	}
 
-	public Hero(String name, String description, int maxHitPoints, int currentHitPoints, int armor, int maxDamage,
-			int minDamage, int evasion, int accuracy) {
-		super(name, description, maxHitPoints, currentHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
+	public Hero(String name, int maxHitPoints, int currentHitPoints, int armor, int maxDamage, int minDamage,
+			int evasion, int accuracy) {
+		super(name, maxHitPoints, currentHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
 		heroSkills = new HeroSkills();
 	}
 
@@ -32,33 +32,6 @@ public class Hero extends Unit {
 
 		int skillDamage = heroSkills.fury(getMaxDamage());
 		return skillDamage;
-	}
-
-	void defend(Monster monster, String attackType) {
-		if (attackType.equals("a")) {
-			int attackStrengthNormal = monster.attack();
-
-			if (getEvasion() * (1 + (int) (Math.random() * ((10 - 1) + 1))) > monster.getAccuracy()
-					* (1 + (int) (Math.random() * ((10 - 1) + 1)))) {
-				System.out.println(monster.getName() + " missed you");
-			} else {
-				int remainingHitPoints = (getCurrentHitPoints() > attackStrengthNormal) ? getCurrentHitPoints()
-						- (attackStrengthNormal - attackStrengthNormal * getDmgReduction() / 100) : 0;
-
-				setCurrentHitPoints(remainingHitPoints);
-				System.out.printf(" " + getName() + " is hit for %d HP of damage-%d armor (%s)\n", attackStrengthNormal,
-						getArmor(), getStatus());
-			}
-
-		} else if (attackType == "fury") {
-			int attackStrengthSkill = heroSkills.fury(getMaxDamage());
-			int remainingHitPoints = (getCurrentHitPoints() > attackStrengthSkill)
-					? (getCurrentHitPoints() + getArmor()) - attackStrengthSkill : 0;
-
-			setCurrentHitPoints(remainingHitPoints);
-			System.out.printf(" " + getName() + " is hit for %d HP of damage-%d armor (%s)\n", attackStrengthSkill,
-					getArmor(), getStatus());
-		}
 	}
 
 	@Override

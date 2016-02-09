@@ -19,7 +19,7 @@ public class Map {
 	private int random;
 
 	public void NewMap(int n) {
-		Monster m= new Monster ("Le","Roy",5,10,20,30,30,30,10);
+		Monster m= new Monster ("Le",5,10,20,30,30,30,10);
 		Trader t= new Trader ();
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < n; j++) {
