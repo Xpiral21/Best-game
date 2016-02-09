@@ -17,9 +17,9 @@ public class Hero extends Unit {
 		this.numPotions = numPotions;
 	}
 
-	public Hero(String name, int maxHitPoints, int currentHitPoints, int armor, int maxDamage, int minDamage,
+	public Hero(String name, int maxHitPoints, int armor, int maxDamage, int minDamage,
 			int evasion, int accuracy) {
-		super(name, maxHitPoints, currentHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
+		super(name, maxHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
 		heroSkills = new HeroSkills();
 	}
 
@@ -58,7 +58,7 @@ public class Hero extends Unit {
 
 	@Override
 	String getStatus() {
-		return getName() + " " + getDescription() + " HP is " + getCurrentHitPoints();
+		return "Your HP is " + getCurrentHitPoints();
 	}
 
 }

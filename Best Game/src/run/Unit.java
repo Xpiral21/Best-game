@@ -15,18 +15,18 @@ public abstract class Unit {
 	private int mana;
 	private int accuracy;
 
-	public Unit(String name,  int maxHitPoints, int currentHitPoints, int armor, int maxDamage,
+	public Unit(String name,  int maxHitPoints, int armor, int maxDamage,
 			int minDamage, int evasion, int accuracy) {
 		this.name = name;
 		
 		this.maxHitPoints = maxHitPoints;
-		this.currentHitPoints = currentHitPoints;
+		this.currentHitPoints = maxHitPoints;
 		this.armor = armor;
 		this.maxDamage = maxDamage;
 		this.minDamage = minDamage;
 		this.evasion = evasion;
 		this.accuracy = accuracy;
-		this.description = name+" has "+currentHitPoints+" out of "+maxHitPoints+" and does between "+minDamage+"-"+maxDamage+" DMG";
+		this.description = name+" has "+maxHitPoints+" max HP"+" and does between "+minDamage+"-"+maxDamage+" DMG";
 	}
 
 	// abstract methods shared between all UNITS
@@ -56,7 +56,7 @@ public abstract class Unit {
 						- (attackStrengthNormal - attackStrengthNormal * getDmgReduction() / 100) : 0;
 
 				setCurrentHitPoints(remainingHitPoints);
-				System.out.printf(" " + getName() + " is hit for %d HP of damage-%d armor (%s)\n", attackStrengthNormal,
+				System.out.printf(getName() + " is hit for %d HP of damage-%d armor (%s)\n", attackStrengthNormal,
 						getArmor(), getStatus());
 			}
 

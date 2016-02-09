@@ -4,9 +4,9 @@ public class Monster extends Unit {
 
 	Skills monsterSkills;
 
-	public Monster(String name, int maxHitPoints, int currentHitPoints, int armor, int maxDamage, int minDamage,
+	public Monster(String name, int maxHitPoints, int armor, int maxDamage, int minDamage,
 			int evasion, int accuracy) {
-		super(name, maxHitPoints, currentHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
+		super(name, maxHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
 		monsterSkills = new MonsterSkills();
 
 	}
@@ -36,7 +36,7 @@ public class Monster extends Unit {
 
 	@Override
 	String getStatus() {
-		return getName() + " " + getDescription() + " HP is " + getCurrentHitPoints();
+		return "Current HP is " + getCurrentHitPoints();
 	}
 
 	@Override

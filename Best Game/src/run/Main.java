@@ -12,10 +12,12 @@ public class Main {
 			System.out.println();
 		}
 		System.out.println(m.getRoom(2, 3).getRoomDescription());
-		Unit jedy = new Monster("Loki", 800, 800, 50, 75, 20, 10, 10);
+		Monster jedy = new Monster("Loki", 800, 50, 75, 20, 10, 10);
+		Monster jedy2 = new Monster("Loki 2", 800, 50, 75, 20, 10, 10);
 		System.out.println(jedy.getArmor());
 		System.out.println(jedy.getDmgReduction());
-		jedy.attack();
+		jedy.defend(jedy2, "a");
+		System.out.println(jedy.getDescription());
 		
 	}
 }
