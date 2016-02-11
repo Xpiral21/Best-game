@@ -26,11 +26,14 @@ public class Map {
 				
 
 				random = (int) (Math.random() * 100);
-				if (random > 50) {
+				if (random >70) {
 					map[i][j] = new MonsterRoom(m);
-				} else   {
+				} else if(random>63)   {
 					map[i][j] = new CityRoom(t);
 				} 
+				else {
+					map[i][j]= new EmptyRoom();
+				}
 			}
 	}
 
