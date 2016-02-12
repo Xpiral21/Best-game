@@ -19,20 +19,18 @@ public class Map {
 	private int random;
 
 	public void NewMap(int n) {
-		Monster m= new Monster ("Le",5,10,30,30,30,10);
-		Trader t= new Trader ();
+		Monster m = new Monster("Le", 5, 10, 30, 30, 30, 10);
+		Trader t = new Trader();
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < n; j++) {
-				
 
 				random = (int) (Math.random() * 100);
-				if (random >70) {
+				if (random > 70) {
 					map[i][j] = new MonsterRoom(m);
-				} else if(random>63)   {
+				} else if (random > 63) {
 					map[i][j] = new CityRoom(t);
-				} 
-				else {
-					map[i][j]= new EmptyRoom();
+				} else {
+					map[i][j] = new EmptyRoom();
 				}
 			}
 	}

@@ -18,6 +18,6 @@ public class Main {
 		System.out.println(jedy.getDmgReduction());
 		jedy.defend(jedy2, "a");
 		System.out.println(jedy.getDescription());
-		
+
 	}
 }
