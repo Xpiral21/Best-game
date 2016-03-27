@@ -25,7 +25,7 @@ public class Main {
 		Hero hero = new Hero(sc.nextLine(), 800, 50, 75, 20, 10, 10);
 		System.out.println("Character created.");
 		System.out.println(hero.getDescription());
-		int charLocation []={m.getMapSize()/2,m.getMapSize()/2};
+		
 		while(hero.isAlive()){
 			
 		}
