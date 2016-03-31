@@ -23,7 +23,8 @@ public class Battle {
 				player.defend(monster, "a");
 			}else if (action.equals("r")){
 				player.defend(monster, "a");
-				player.charLocation[]=player.prevLocation[];
+				player.charLocation[0]=player.prevLocation[0];
+				player.charLocation[1]=player.prevLocation[1];
 			}
 		}
 	}
