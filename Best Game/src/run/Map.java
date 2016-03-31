@@ -21,25 +21,8 @@ public class Map {
 	}
 
 	private int random;
-
-	public void NewMap(int n) {
-		Monster m = new Monster("Le", 5, 10, 30, 30, 30, 10);
-		Trader t = new Trader();
-		for (int i = 0; i < n; i++)
-			for (int j = 0; j < n; j++) {
-
-				random = (int) (Math.random() * 100);
-				if (random > 70) {
-					map[i][j] = new MonsterRoom(m);
-				} else if (random > 63) {
-					map[i][j] = new CityRoom(t);
-				} else {
-					map[i][j] = new EmptyRoom();
-				}
-			}
-	}
 	private boolean roomExists(int x, int y) {
-        if (x>map.length||y>map.length) {
+        if (x>mapSize||y>mapSize) {
             return false;
         }else
         return true;
@@ -73,9 +56,26 @@ public class Map {
         	player.charLocation[0]++;
         } else if (direction.equals("w") && westPossible) {
         	player.charLocation[0]--;
-        }
-        
-    }
+        }}
+	public void NewMap(int n) {
+		Monster m = new Monster("Le", 5, 10, 30, 30, 30, 10);
+		Trader t = new Trader();
+		for (int i = 0; i < n; i++)
+			for (int j = 0; j < n; j++) {
+
+				random = (int) (Math.random() * 100);
+				if (random > 70) {
+					map[i][j] = new MonsterRoom(m);
+				} else if (random > 63) {
+					map[i][j] = new CityRoom(t);
+				} else {
+					map[i][j] = new EmptyRoom();
+				}
+			}
+	}
+	
+       
+    
 	public Room getRoom(int x, int y) {
 		return map[x][y];
 	}

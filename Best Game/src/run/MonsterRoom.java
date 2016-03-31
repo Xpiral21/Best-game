@@ -15,6 +15,14 @@ public class MonsterRoom extends Room {
 		return false;
 	}
 
+	public Monster getMonster() {
+		return monster;
+	}
+
+	public void setMonster(Monster monster) {
+		this.monster = monster;
+	}
+
 	public String toString() {
 
 		return "2";

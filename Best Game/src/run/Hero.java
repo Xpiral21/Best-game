@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hero extends Unit {
+	int prevLocation[]={4,5};
 	int charLocation []={5,5};
 	Skills heroSkills;
 	private int numPotions = 2;

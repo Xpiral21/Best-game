@@ -1,5 +1,8 @@
 package run;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Random;
 
 public abstract class Unit {
@@ -44,6 +47,7 @@ public abstract class Unit {
 	public final Random random = new Random();
 
 	// end abstract methods shared between all UNITS
+	
 	void defend(Unit unit, String attackType) {
 		if (attackType.equals("a")) {
 			int attackStrengthNormal = unit.attack();
@@ -60,7 +64,7 @@ public abstract class Unit {
 						getArmor(), getStatus());
 			}
 
-		} else if (attackType == "fury") {
+		} else if (attackType == "s") {
 			HeroSkills heroSkills = new HeroSkills();
 			int attackStrengthSkill = heroSkills.fury(getMaxDamage());
 			int remainingHitPoints = (getCurrentHitPoints() > attackStrengthSkill)
