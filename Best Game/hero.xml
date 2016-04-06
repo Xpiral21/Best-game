@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<hero>
+    <Name>gigi</Name>
+    <MaxLife>800</MaxLife>
+    <Mana>0</Mana>
+    <CurrentLife/>
+    <Accuracy>10</Accuracy>
+    <Armor>50</Armor>
+    <MaxDamage>75</MaxDamage>
+    <MinDamage>20</MinDamage>
+    <Evasion>10</Evasion>
+</hero>
