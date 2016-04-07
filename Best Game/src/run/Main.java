@@ -26,6 +26,7 @@ public class Main {
 		System.out.println("Character created.");
 		System.out.println(hero.getDescription());
 		Save gigi=new Save(hero);
+		Load l = new Load(hero);
 		//while(hero.isAlive()){		
 			
 		//}
