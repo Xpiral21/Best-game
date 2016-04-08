@@ -27,5 +27,11 @@ public class Battle {
 				player.charLocation[1]=player.prevLocation[1];
 			}
 		}
+                System.out.println("gigi");
+                System.out.println("af"
+                        + "croco"
+                        + " "
+                        + "");
+                    
 	}
 }
