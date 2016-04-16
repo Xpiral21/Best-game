@@ -1,9 +1,6 @@
 package run;
 
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
 
@@ -18,8 +15,7 @@ public class Main {
 //			System.out.println();
 //		}
 //		System.out.println(m.getRoom(2, 3).getRoomDescription());
-        Monster jedy = new Monster("Loki", 800, 50, 75, 20, 10, 10);
-//		Monster jedy2 = new Monster("Loki 2", 800, 50, 75, 20, 10, 10);
+        
 //		System.out.println(jedy.getArmor());
 //		System.out.println(jedy.getDmgReduction());
 //		jedy.defend(jedy2, "a");
@@ -28,15 +24,16 @@ public class Main {
         Hero hero = new Hero(sc.nextLine(), 800, 50, 75, 20, 10, 10);
         System.out.println("Character created.");
         System.out.println(hero.getDescription());
-        try {
-            //		Save gigi=new Save(hero);
-            //		Load l = new Load(hero);
-            //while(hero.isAlive()){
-            Battle first = new Battle(hero, jedy);
-            //}
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+//        try {
+//            //		Save gigi=new Save(hero);
+//            //		Load l = new Load(hero);
+//            //while(hero.isAlive()){
+//            
+//            //}
+//        } catch (IOException ex) {
+//            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
 }

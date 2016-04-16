@@ -1,12 +1,14 @@
 package run;
 
+import java.util.ArrayList;
+
 public class MonsterRoom extends Room {
 
 	private Monster monster;
 
-	MonsterRoom(Monster mons) {
+	MonsterRoom(ArrayList<Monster> mons) {
 		super("There's a monster in here.");
-		monster = mons;
+		monster = mons.get((int)(Math.random()*2));
 	}
 
 	public boolean roomIsClear(Monster m) {

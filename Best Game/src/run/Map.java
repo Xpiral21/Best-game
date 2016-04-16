@@ -3,11 +3,12 @@ package run;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Map {
 
     private Room map[][] = new Room[10][10];
-    private int mapSize;
+    private final int mapSize;
 
     public int getMapSize() {
         return mapSize;
@@ -59,14 +60,18 @@ public class Map {
     }
 
     public void NewMap(int n) {
-        Monster m = new Monster("Le", 5, 10, 30, 30, 30, 10);
+        Monster monster1 = new Monster("Loki", 800, 50, 75, 20, 10, 10);
+        Monster monster2 = new Monster("Loki 2", 800, 50, 75, 20, 10, 10);
+        ArrayList <Monster> allMonsters=new ArrayList<>();
+        allMonsters.add(monster1);
+        allMonsters.add(monster2);
         Trader t = new Trader();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
 
                 random = (int) (Math.random() * 100);
                 if (random > 70) {
-                    map[i][j] = new MonsterRoom(m);
+                    map[i][j] = new MonsterRoom(allMonsters);
                 } else if (random > 63) {
                     map[i][j] = new CityRoom(t);
                 } else {
