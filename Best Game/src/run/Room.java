@@ -1,6 +1,6 @@
 package run;
 
-public abstract class Room {
+public class Room {
 
     private String roomDescription;
 
@@ -16,7 +16,15 @@ public abstract class Room {
         this.roomDescription = roomDescription;
     }
 
-    public abstract boolean roomIsClear(Monster m);
-    public abstract Monster getMonster();
+    public boolean roomIsClear(Monster m) {
+        if (m.isAlive()) {
+            return true;
+        }
+        return false;
+    }
+
+    public Monster getMonster() {
+        return null;
+    }
 
 }

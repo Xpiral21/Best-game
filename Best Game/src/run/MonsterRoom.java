@@ -4,27 +4,29 @@ import java.util.ArrayList;
 
 public class MonsterRoom extends Room {
 
-	private Monster monster;
+    private Monster monster;
 
-	MonsterRoom(ArrayList<Monster> mons) {
-		super("There's a monster in here.");
-		monster = mons.get((int)(Math.random()*2));
-	}
+    MonsterRoom(ArrayList<Monster> mons) {
+        super("There's a monster in here.");
+        monster = mons.get((int) (Math.random() * 2));
+    }
 
-	public boolean roomIsClear(Monster m) {
-		if (m.isAlive())
-			return true;
-		return false;
-	}
+    @Override
+    public boolean roomIsClear(Monster m) {
+        if (m.isAlive()) {
+            return true;
+        }
+        return false;
+    }
 
-	public Monster getMonster() {
-		return monster;
-	}
+    @Override
+    public Monster getMonster() {
+        return monster;
+    }
 
-	
+    @Override
+    public String toString() {
 
-	public String toString() {
-
-		return "2";
-	}
+        return "2";
+    }
 }

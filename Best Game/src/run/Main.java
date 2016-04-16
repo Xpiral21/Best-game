@@ -18,7 +18,7 @@ public class Main {
 //			System.out.println();
 //		}
 //		System.out.println(m.getRoom(2, 3).getRoomDescription());
-        
+
 //		System.out.println(jedy.getArmor());
 //		System.out.println(jedy.getDmgReduction());
 //		jedy.defend(jedy2, "a");
@@ -27,10 +27,10 @@ public class Main {
         Hero hero = new Hero(sc.nextLine(), 800, 50, 75, 20, 10, 10);
         System.out.println("Character created.");
         System.out.println(hero.getDescription());
-        if(m.getRoom(hero.charLocation[0], hero.charLocation[1]) instanceof MonsterRoom){
+        if (m.getRoom(hero.charLocation[0], hero.charLocation[1]) instanceof MonsterRoom) {
             try {
                 m.getRoom(hero.charLocation[0], hero.charLocation[1]).getRoomDescription();
-                Battle oneBattle=new Battle(hero, m.getRoom(hero.charLocation[0], hero.charLocation[1]).getMonster());
+                Battle oneBattle = new Battle(hero, m.getRoom(hero.charLocation[0], hero.charLocation[1]).getMonster());
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
