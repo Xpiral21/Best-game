@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Map {
 
-    private Room map[][] = new Room[10][10];
+    private Room [][] map=new Room[10][10];
     private final int mapSize;
 
     public int getMapSize() {

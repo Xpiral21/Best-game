@@ -1,6 +1,9 @@
 package run;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
 
@@ -24,7 +27,14 @@ public class Main {
         Hero hero = new Hero(sc.nextLine(), 800, 50, 75, 20, 10, 10);
         System.out.println("Character created.");
         System.out.println(hero.getDescription());
-        
+        if(m.getRoom(hero.charLocation[0], hero.charLocation[1]) instanceof MonsterRoom){
+            try {
+                m.getRoom(hero.charLocation[0], hero.charLocation[1]).getRoomDescription();
+                Battle oneBattle=new Battle(hero, m.getRoom(hero.charLocation[0], hero.charLocation[1]).getMonster());
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 //        try {
 //            //		Save gigi=new Save(hero);
 //            //		Load l = new Load(hero);

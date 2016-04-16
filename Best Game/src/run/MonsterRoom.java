@@ -21,9 +21,7 @@ public class MonsterRoom extends Room {
 		return monster;
 	}
 
-	public void setMonster(Monster monster) {
-		this.monster = monster;
-	}
+	
 
 	public String toString() {
 

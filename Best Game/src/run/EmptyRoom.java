@@ -9,5 +9,13 @@ public class EmptyRoom extends Room {
 	public String toString() {
 		return "0";
 	}
+public boolean roomIsClear(Monster m) {
+		if (m.isAlive())
+			return true;
+		return false;
+	}
 
+	public Monster getMonster() {
+		return null;
+	}
 }
