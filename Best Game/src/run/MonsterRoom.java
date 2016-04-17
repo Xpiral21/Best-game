@@ -11,7 +11,6 @@ public class MonsterRoom extends Room {
         monster = mons.get((int) (Math.random() * 2));
     }
 
-    @Override
     public boolean roomIsClear(Monster m) {
         if (m.isAlive()) {
             return true;
@@ -19,7 +18,6 @@ public class MonsterRoom extends Room {
         return false;
     }
 
-    @Override
     public Monster getMonster() {
         return monster;
     }

@@ -16,15 +16,6 @@ public class Room {
         this.roomDescription = roomDescription;
     }
 
-    public boolean roomIsClear(Monster m) {
-        if (m.isAlive()) {
-            return true;
-        }
-        return false;
-    }
 
-    public Monster getMonster() {
-        return null;
-    }
 
 }

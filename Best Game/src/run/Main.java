@@ -28,13 +28,15 @@ public class Main {
         System.out.println("Character created.");
         System.out.println(hero.getDescription());
         if (m.getRoom(hero.charLocation[0], hero.charLocation[1]) instanceof MonsterRoom) {
+
+            MonsterRoom temp = (MonsterRoom) (m.getRoom(hero.charLocation[0], hero.charLocation[1]));
             try {
-                m.getRoom(hero.charLocation[0], hero.charLocation[1]).getRoomDescription();
-                Battle oneBattle = new Battle(hero, m.getRoom(hero.charLocation[0], hero.charLocation[1]).getMonster());
+                Battle oneBattle = new Battle(hero, temp.getMonster());
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
 //        try {
 //            //		Save gigi=new Save(hero);
 //            //		Load l = new Load(hero);
@@ -44,6 +46,4 @@ public class Main {
 //        } catch (IOException ex) {
 //            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-    }
-
 }
