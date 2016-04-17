@@ -8,7 +8,7 @@ public class MonsterRoom extends Room {
 
     MonsterRoom(ArrayList<Monster> mons) {
         super("There's a monster in here.");
-        monster = mons.get((int) (Math.random() * 2));
+        monster = mons.get((int) (Math.random() * mons.size()));
     }
 
     public boolean roomIsClear(Monster m) {
