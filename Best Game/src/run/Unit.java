@@ -68,7 +68,7 @@ public abstract class Unit {
 			HeroSkills heroSkills = new HeroSkills();
 			int attackStrengthSkill = heroSkills.fury(getMaxDamage());
 			int remainingHitPoints = (getCurrentHitPoints() > attackStrengthSkill)
-					? (getCurrentHitPoints() + getArmor()) - attackStrengthSkill : 0;
+					? (getCurrentHitPoints()) - attackStrengthSkill : 0;
 
 			setCurrentHitPoints(remainingHitPoints);
 			System.out.printf(" " + getName() + " is hit for %d HP of damage-%d armor (%s)\n", attackStrengthSkill,
