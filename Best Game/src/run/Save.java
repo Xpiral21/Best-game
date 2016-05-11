@@ -13,7 +13,7 @@ import org.w3c.dom.Element;
 
 public class Save {
 
-    public Save(Hero hero) {
+    public static void saveHero(Hero hero) {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -22,11 +22,9 @@ public class Save {
             String converter;
             Element rootElement = doc.createElement("hero");
             doc.appendChild(rootElement);
-
             Element name = doc.createElement("Name");
             Element maxLife = doc.createElement("MaxLife");
             Element mana = doc.createElement("Mana");
-            Element currentLife = doc.createElement("CurrentLife");
             Element accuracy = doc.createElement("Accuracy");
             Element armor = doc.createElement("Armor");
             Element maxDamage = doc.createElement("MaxDamage");
@@ -52,7 +50,6 @@ public class Save {
             rootElement.appendChild(name);
             rootElement.appendChild(maxLife);
             rootElement.appendChild(mana);
-            rootElement.appendChild(currentLife);
             rootElement.appendChild(accuracy);
             rootElement.appendChild(armor);
             rootElement.appendChild(maxDamage);

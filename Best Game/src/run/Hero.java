@@ -17,7 +17,7 @@ public class Hero extends Unit {
 	public void setNumPotions(int numPotions) {
 		this.numPotions = numPotions;
 	}
-
+	
 	public Hero(String name, int maxHitPoints, int armor, int maxDamage, int minDamage,
 			int evasion, int accuracy) {
 		super(name, maxHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
@@ -53,8 +53,6 @@ public class Hero extends Unit {
 
 	@Override
 	void surrender() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
