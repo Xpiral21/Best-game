@@ -41,7 +41,7 @@ public class Load {
 						String maxDamage = heroMaxDamageNode.getTextContent();
 						String minDamage = heroMinDamageNode.getTextContent();
 						String evasion = heroEvasionNode.getTextContent();
-						h = new Hero(heroName, maxLife, accuracy, armor, maxDamage, minDamage, evasion);
+						//h = new Hero(heroName, maxLife, accuracy, armor, maxDamage, minDamage, evasion);
 					}
 
 				}
