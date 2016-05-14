@@ -27,13 +27,20 @@ public class Load {
 					Element eHero = (Element) hero;
 					NodeList heroAttributes = eHero.getChildNodes();
 					if (heroAttributes.item(1).getTextContent().equals(name)) {
-						String heroName = heroAttributes.item(0).getTextContent();
-						int maxLife = Integer.parseInt(heroAttributes.item(2).getTextContent());
-						int accuracy = Integer.parseInt(heroAttributes.item(3).getTextContent());
-						int armor = Integer.parseInt(heroAttributes.item(5).getTextContent());
-						int maxDamage = Integer.parseInt(heroAttributes.item(6).getTextContent());
-						int minDamage = Integer.parseInt(heroAttributes.item(7).getTextContent());
-						int evasion = Integer.parseInt(heroAttributes.item(8).getTextContent());
+						Element maxLifeNode = (Element) heroAttributes.item(0);
+						Element heroNameNode  = (Element) heroAttributes.item(2);
+						Element heroAccuracyNode  = (Element) heroAttributes.item(3);
+						Element heroArmorNode  = (Element) heroAttributes.item(5);
+						Element heroMaxDamageNode  = (Element) heroAttributes.item(6);
+						Element heroMinDamageNode  = (Element) heroAttributes.item(7);
+						Element heroEvasionNode = (Element)hero.getAttributes().item(8);
+						String heroName = heroNameNode.getTextContent();
+						String maxLife = maxLifeNode.getTextContent();
+						String accuracy =heroAccuracyNode.getTextContent();
+						String armor = heroArmorNode.getTextContent();
+						String maxDamage = heroMaxDamageNode.getTextContent();
+						String minDamage = heroMinDamageNode.getTextContent();
+						String evasion = heroEvasionNode.getTextContent();
 						h = new Hero(heroName, maxLife, accuracy, armor, maxDamage, minDamage, evasion);
 					}
 
