@@ -27,7 +27,7 @@ public class Main {
 		System.out.print("Give your character a name : ");
 
 		Hero hero = new Hero(sc.nextLine(), 800, 50, 75, 20, 10, 10);
-		hero=Load.loadHero("r");
+	//	hero=Load.loadHero("r");
 
 		System.out.println("Character created.");
 		//System.out.println(hero.getDescription());
