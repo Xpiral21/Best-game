@@ -54,7 +54,7 @@ public abstract class Unit {
 
 			if (getEvasion() * (1 + (int) (Math.random() * ((10 - 1) + 1))) > unit.getAccuracy()
 					* (1 + (int) (Math.random() * ((10 - 1) + 1)))) {
-				System.out.println(unit.getName() + " missed you");
+				System.out.println(unit.getName() + " missed.");
 			} else {
 				int remainingHitPoints = (getCurrentHitPoints() > attackStrengthNormal) ? getCurrentHitPoints()
 						- (attackStrengthNormal - attackStrengthNormal * getDmgReduction() / 100) : 0;

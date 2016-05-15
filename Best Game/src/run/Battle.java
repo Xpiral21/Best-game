@@ -8,7 +8,7 @@ public class Battle {
 
     public Battle(Hero player, Monster monster) throws IOException {
         System.out.println("You encounter " + monster.getDescription() + "\n");
-        System.out.println("Battle starts (" + player.getStatus() + " / " + monster.getStatus() + ")");
+        System.out.println("Battle starts (" + player.getStatus() + " VS " + monster.getStatus() + ")");
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         while (player.isAlive() && monster.isAlive()) {
             System.out.print("Attack (a),use skill (s), heal (h) or run away (r)? ");
