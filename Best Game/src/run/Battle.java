@@ -10,8 +10,10 @@ public class Battle {
         System.out.println("You encounter " + monster.getDescription() + "\n");
         System.out.println("Battle starts (" + player.getStatus() + " VS " + monster.getStatus() + ")");
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Attack (a),use skill (s), heal (h) or run away (r)? ");
         while (player.isAlive() && monster.isAlive()) {
-            System.out.print("Attack (a),use skill (s), heal (h) or run away (r)? ");
+        	System.out.println();
+          
             String action = in.readLine();
             if (action.equals("h")) {
                 player.heal();

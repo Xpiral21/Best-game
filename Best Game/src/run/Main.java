@@ -14,20 +14,19 @@ public class Main {
 		Map m = new Map(10);
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Give your character a name : ");
-		Hero hero = new Hero(sc.nextLine(), 800, 50, 705, 20, 10, 10);
+		Hero hero = new Hero(sc.nextLine(), 800, 50, 70, 20, 10, 10);
 		System.out.println("Character created.");
 
-		while ((hero.getVerticalLocation() != 8||hero.getHorizontalLocation() != 8)
-				|| hero.getCurrentHitPoints() <= 0) {
+		while ( hero.getCurrentHitPoints() >0) {
 
-			System.out.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation()
-					+ "  . Type in : up , down , left or right to move.");
+			System.out.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
 			try {
 				m.movePlayer(hero);
 				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof MonsterRoom) {
 					MonsterRoom temp = (MonsterRoom) (m.getRoom(hero.getVerticalLocation(),
 							hero.getHorizontalLocation()));
 					Battle b = new Battle(hero,temp.getMonster());
+					
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
