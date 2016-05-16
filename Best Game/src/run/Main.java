@@ -10,15 +10,13 @@ import java.util.logging.Logger;
 public class Main {
 
 	public static void main(String[] args) {
-		// SimplePlayer music = new SimplePlayer();
+		//SimplePlayer music = new SimplePlayer();
 		Map m = new Map(10);
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Give your character a name : ");
 		Hero hero = new Hero(sc.nextLine(), 800, 50, 70, 20, 10, 10);
 		System.out.println("Character created.");
-
 		while ( hero.getCurrentHitPoints() >0) {
-
 			System.out.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
 			try {
 				m.movePlayer(hero);
