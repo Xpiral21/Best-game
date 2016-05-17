@@ -31,7 +31,7 @@ public class Main {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("caca maca");
+		
 		System.out.println("YOU LOST!");
 	}
 }
