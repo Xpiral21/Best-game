@@ -1,11 +1,7 @@
 package run;
 
-import java.io.Console;
 import java.io.IOException;
-import java.rmi.server.LoaderHandler;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
 
@@ -35,7 +31,7 @@ public class Main {
 				e.printStackTrace();
 			}
 		}
-
+		System.out.println("caca maca");
 		System.out.println("YOU LOST!");
 	}
 }
