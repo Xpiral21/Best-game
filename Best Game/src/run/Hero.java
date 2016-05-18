@@ -78,5 +78,11 @@ public class Hero extends Unit {
 	String getStatus() {
 		return "Your HP is " + getCurrentHitPoints();
 	}
+	public void equipArmour(Armour armour){
+		setMaxHitPoints(getMaxHitPoints()+armour.getMaxHitPoints());
+		setArmor(getArmor()+armour.getArmor());
+		setAccuracy(getAccuracy()+armour.getAccuracy());
+		setEvasion(getEvasion()+armour.getEvasion());
+	}
 
 }

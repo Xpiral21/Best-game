@@ -121,9 +121,17 @@ public abstract class Unit {
 		return mana;
 	}
 
-	// end getters
+	public void setName(String name) {
+		this.name = name;
+	}
 
-	// begin setters
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setMaxHitPoints(int maxHitPoints) {
+		this.maxHitPoints = maxHitPoints;
+	}
 
 	public void setCurrentHitPoints(int currentHitPoints) {
 		this.currentHitPoints = currentHitPoints;
@@ -145,6 +153,13 @@ public abstract class Unit {
 		this.evasion = evasion;
 	}
 
-	// end setters
+	public void setMana(int mana) {
+		this.mana = mana;
+	}
+
+	public void setAccuracy(int accuracy) {
+		this.accuracy = accuracy;
+	}
+
 
 }
