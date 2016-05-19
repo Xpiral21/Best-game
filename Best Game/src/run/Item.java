@@ -68,7 +68,7 @@ public class Item {
 
         if (rand2 < 0.5) {
             if (rand3 < 1) {
-                name = name.concat(" Helm");
+                name = name.concat(" Helmet");
             } else if (rand3 < 2) {
                 name = name.concat(" Chest");
             } else if (rand3 < 3) {
@@ -118,7 +118,12 @@ public class Item {
     public int getAccuracy() {
         return accuracy;
     }
-
+    public int getMaxDamage() {
+        return maxDamage;
+    }
+    public int getMinDamage() {
+        return minDamage;
+    }
     public String toString() {
         String str = name + System.lineSeparator();
         if (hp > 0) {

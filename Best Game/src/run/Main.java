@@ -5,7 +5,11 @@ public class Main {
 	public static void main(String[] args) {
         Item gg = new Item();
         System.out.println(gg.toString());
-        System.out.println(gg.getName());
+        Hero hero = new Hero("Hero", 800, 50, 7000, 20, 10, 10);
+        System.out.println("Armor before equipping "+ hero.getArmor());
+        hero.equippedItems.equipItem(gg, hero);
+        System.out.println("Armor after equipping "+ hero.getArmor());
+      
         // SimplePlayer music = new SimplePlayer();
 //		Map m = new Map(10);
 //		Scanner sc = new Scanner(System.in);

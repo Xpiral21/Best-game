@@ -1,27 +1,29 @@
 package run;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Hero extends Unit {
 	int prevLocation[] = { 4, 5 };
 	int charLocation[] = { 5, 5 };
 	Skills heroSkills;
 	private int numPotions = 2;
-	private List<String> inventory = new ArrayList<String>();
+	Inventory inventory= new Inventory();
+	EquippedItems equippedItems=new EquippedItems();
 
 	public int getNumPotions() {
 		return numPotions;
 	}
 
-	public int getVerticalLocation(){
+	public int getVerticalLocation() {
 		return charLocation[0];
 	}
-	public int getHorizontalLocation(){
+
+	public int getHorizontalLocation() {
 		return charLocation[1];
 	}
+
 	public void moveHero(String direction) {
-		prevLocation=charLocation;
+		prevLocation = charLocation;
 		if (direction.compareTo("up") == 0) {
 			charLocation[0]--;
 		} else if (direction.compareTo("down") == 0) {
@@ -78,6 +80,5 @@ public class Hero extends Unit {
 	String getStatus() {
 		return "Your HP is " + getCurrentHitPoints();
 	}
-
 
 }
