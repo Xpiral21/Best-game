@@ -1,22 +1,22 @@
 package run;
 
-import java.io.IOException;
-import java.util.Scanner;
-
 public class Main {
 
 	public static void main(String[] args) {
-		// SimplePlayer music = new SimplePlayer();
-		Map m = new Map(10);
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Give your character a name : ");
-		Hero hero = new Hero(sc.nextLine(), 800, 50, 7000, 20, 10, 10);
-		System.out.println("Character created.");
-		Armour a = new Armour();
-		System.out.println(a);
-		System.out.println(hero.getArmor());
-		hero.equipArmour(a);
-		System.out.println(hero.getArmor());
+        Item gg = new Item();
+        System.out.println(gg.toString());
+        System.out.println(gg.getName());
+        // SimplePlayer music = new SimplePlayer();
+//		Map m = new Map(10);
+//		Scanner sc = new Scanner(System.in);
+//		System.out.print("Give your character a name : ");
+//		Hero hero = new Hero(sc.nextLine(), 800, 50, 7000, 20, 10, 10);
+//		System.out.println("Character created.");
+//		Armour a = new Armour();
+//		System.out.println(a);
+//		System.out.println(hero.getArmor());
+//		hero.equipArmour(a);
+//		System.out.println(hero.getArmor());
 /*		while (hero.getCurrentHitPoints() > 0) {
 			System.out
 					.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
@@ -36,9 +36,9 @@ public class Main {
 				e.printStackTrace();
 			}
 		}*/
-		
-		System.out.println("YOU LOST!");
-	}
+
+//		System.out.println("YOU LOST!");
+    }
 }
 
 /*

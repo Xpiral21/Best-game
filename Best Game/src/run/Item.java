@@ -60,42 +60,42 @@ public class Item {
     private String randName() {
         String name = "";
         if (rand < 8) {
-            name.concat("Lesser");
+            name = name.concat("Lesser");
         } else if (rand < 14) {
-            name.concat("Medium");
+            name = name.concat("Medium");
         } else {
-            name.concat("Greater");
+            name = name.concat("Greater");
         }
 
-        if (rand < 0.5) {
+        if (rand2 < 0.5) {
             if (rand3 < 1) {
-                name.concat(" Helm");
+                name = name.concat(" Helm");
             } else if (rand3 < 2) {
-                name.concat(" Chest");
+                name = name.concat(" Chest");
             } else if (rand3 < 3) {
-                name.concat(" Gloves");
+                name = name.concat(" Gloves");
             } else if (rand3 < 4) {
-                name.concat(" Greaves");
+                name = name.concat(" Pants");
             } else if (rand3 < 6) {
-                name.concat(" Boots");
+                name = name.concat(" Boots");
             }
         } else {
             if (rand3 < 2) {
-                name.concat(" Sword");
+                name = name.concat(" Sword");
             } else if (rand3 < 4) {
-                name.concat(" Spear");
+                name = name.concat(" Spear");
             } else if (rand3 < 6) {
-                name.concat(" Staff");
+                name = name.concat(" Staff");
             }
         }
-        if (hp != 0) {
-            name.concat(" of Health");
-        } else if (armor != 0) {
-            name.concat(" of Defence");
-        } else if (evasion != 0) {
-            name.concat(" of Evasion");
-        } else if (accuracy != 0) {
-            name.concat(" of Accuracy");
+        if (hp > 0) {
+            name = name.concat(" of Health");
+        } else if (armor > 0) {
+            name = name.concat(" of Defence");
+        } else if (evasion > 0) {
+            name = name.concat(" of Evasion");
+        } else if (accuracy > 0) {
+            name = name.concat(" of Accuracy");
         }
         return name;
     }
