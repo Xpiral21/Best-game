@@ -12,25 +12,24 @@ public class Item {
     int rand = (int) (Math.random() * 20) + 1;
     double rand2 = Math.random();
     double rand3 = Math.random() * 6;
-    int caseNumber = (int) (Math.random() * 4 + 1);
+    int caseNumber = (int) (Math.random() * 3 + 1);
 
     public Item() {
 
 
         if (rand2 < 0.5) {
-
+            armor = rand * 2;
             switch (caseNumber) {
                 case 1:
                     hp = rand * 2;
                     break;
                 case 2:
-                    armor = rand * 2;
-                    break;
-                case 3:
                     evasion = rand * 2;
                     break;
-                case 4:
+                case 3:
                     accuracy = rand * 2;
+                    break;
+
             }
         }
 
@@ -90,8 +89,7 @@ public class Item {
         }
         if (hp > 0) {
             name = name.concat(" of Health");
-        } else if (armor > 0) {
-            name = name.concat(" of Defence");
+
         } else if (evasion > 0) {
             name = name.concat(" of Evasion");
         } else if (accuracy > 0) {
