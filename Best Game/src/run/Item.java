@@ -139,9 +139,7 @@ public class Item {
         if (maxDamage > 0) {
             str = str + "MIN DAMAGE : " + minDamage + System.lineSeparator();
         }
-        if (accuracy > 0) {
-            str = str + "ACCURACY : " + accuracy + System.lineSeparator();
-        }
+
 
         return str;
     }
