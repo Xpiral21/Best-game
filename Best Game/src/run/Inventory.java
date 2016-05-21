@@ -3,7 +3,7 @@ package run;
 import java.util.ArrayList;
 
 public class Inventory {
-	ArrayList<Item> inventory;
+	ArrayList<Item> inventory = new ArrayList();
 
 	public void addItem(Item item) {
 		inventory.add(item);

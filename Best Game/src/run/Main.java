@@ -7,7 +7,8 @@ public class Main {
         System.out.println(gg.toString());
         Hero hero = new Hero("Hero", 800, 50, 7000, 20, 10, 10);
         System.out.println("Armor before equipping "+ hero.getArmor());
-        hero.equippedItems.equipItem(gg, hero);
+        hero.inventory.addItem(gg);
+        hero.equippedItems.equipItem(hero.inventory.getItem(0), hero);
         System.out.println("Armor after equipping "+ hero.getArmor());
       
         // SimplePlayer music = new SimplePlayer();
