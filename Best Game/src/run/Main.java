@@ -1,15 +1,39 @@
 package run;
 
+import java.util.ArrayList;
+
 public class Main {
 
 	public static void main(String[] args) {
-        Item gg = new Item();
-        System.out.println(gg.toString());
-        Hero hero = new Hero("Hero", 800, 50, 7000, 20, 10, 10);
-        System.out.println("Armor before equipping "+ hero.getArmor());
-        hero.inventory.addItem(gg);
-        hero.equippedItems.equipItem(hero.inventory.getItem(0), hero);
-        System.out.println("Armor after equipping "+ hero.getArmor());
+        Hero hero = new Hero("Hero", 800, 0, 0, 0, 0, 0);
+        Item i1 = new Item();
+        Item i2 = new Item();
+        Item i3 = new Item();
+        Item i4 = new Item();
+        Item i5 = new Item();
+        Item i6 = new Item();
+        hero.inventory.addItem(i1);
+        hero.inventory.addItem(i2);
+        hero.inventory.addItem(i3);
+        hero.inventory.addItem(i4);
+        hero.inventory.addItem(i5);
+        hero.inventory.addItem(i6);
+        System.out.println(i1.toString());
+        System.out.println(i2.toString());
+        System.out.println(i3.toString());
+        System.out.println(i4.toString());
+        System.out.println(i5.toString());
+        System.out.println(i6.toString());
+        System.out.println("Before equipping "+ hero);
+        for(int i=0;i<hero.inventory.getSize();i++){
+            hero.equipItem(hero.inventory.getItem(i));
+        }
+
+
+      
+        System.out.println("After equipping "+ hero);
+        System.out.println();
+     //  hero.inventory.showInventory();
       
         // SimplePlayer music = new SimplePlayer();
 //		Map m = new Map(10);
