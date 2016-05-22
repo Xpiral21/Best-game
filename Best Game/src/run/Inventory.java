@@ -6,23 +6,25 @@ public class Inventory {
 	private ArrayList<Item> inventory = new ArrayList();
 
 	public void addItem(Item item) {
-		inventory.add(item);
+		this.inventory.add(item);
 	}
 
 	public Item getItem(int i) {
-		Item copy = inventory.get(i);
-		inventory.remove(i);
-		return copy;
+	
+		return inventory.get(i);
 	}
 
-	public void showInventory() {
-		for (int i = 0; i < inventory.size(); i++) {
-			System.out.println("Item number : " + i);
-			System.out.println(inventory.get(i));
-		}
 
-	}
 	public int getSize (){
 		return inventory.size();
+	}
+	@Override
+	public String toString() {
+		String str="INVENTROY"+System.lineSeparator();
+		for(int i =0;i<inventory.size();i++){
+			str = str+inventory.get(i)+System.lineSeparator();
+		}
+		str=str+System.lineSeparator();
+		return str;
 	}
 }
