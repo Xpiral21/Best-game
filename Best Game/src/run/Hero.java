@@ -127,7 +127,13 @@ public class Hero extends Unit {
 	}
 
 	public void unequipItem(Item item) {
-
+		this.setMaxHitPoints(this.getMaxHitPoints() - item.getMaxHitPoints());
+		this.setArmor(this.getArmor() - item.getArmor());
+		this.setMaxDamage(this.getMaxDamage() - item.getMaxDamage());
+		this.setMinDamage(this.getMinDamage() - item.getMinDamage());
+		this.setEvasion(this.getEvasion() - item.getEvasion());
+		this.setAccuracy(this.getAccuracy() - item.getAccuracy());
+		equippedItems.removeItem(item.getName());
 	}
 
 	@Override

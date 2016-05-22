@@ -9,22 +9,15 @@ public class Main {
 		Item i1 = new Item();
 		Item i2 = new Item();
 		Item i3 = new Item();
-		Item i4 = new Item();
-		Item i5 = new Item();
 
 		hero.inventory.addItem(i1);
 		hero.inventory.addItem(i2);
 		hero.inventory.addItem(i3);
-		hero.inventory.addItem(i4);
-		hero.inventory.addItem(i5);
 
 		System.out.println(i1.getName());
 		System.out.println(i2.getName());
 		System.out.println(i3.getName());
-		System.out.println(i4.getName());
-		System.out.println(i5.getName());
 
-	
 		for (int i = 0; i < hero.inventory.getSize(); i++) {
 			System.out.println(hero.inventory.getItem(i).getName());
 			System.out.println();
@@ -33,7 +26,9 @@ public class Main {
 
 		System.out.println("After equipping " + hero);
 		System.out.println();
-
+		hero.unequipItem(i1);
+		System.out.println("After unequipping " + hero);
+		System.out.println();
 		System.out.println(hero.inventory);
 		System.out.println(hero.equippedItems);
 

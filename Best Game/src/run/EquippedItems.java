@@ -21,4 +21,12 @@ public class EquippedItems {
 		str=str+System.lineSeparator();
 		return str;
 	}
+	//Temporary
+	public void removeItem(String itemName){
+		for(int i=0;i<items.size();i++){
+			if(items.get(i).getName().compareTo(itemName)==0){
+				items.remove(i);
+			}
+		}
+	}
 }
