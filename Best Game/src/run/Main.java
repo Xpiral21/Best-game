@@ -1,10 +1,11 @@
 package run;
 
-import java.util.ArrayList;
+
 
 public class Main {
 
 	public static void main(String[] args) {
+		
 		Hero hero = new Hero("Hero", 800, 0, 0, 0, 0, 0);
 		Item i1 = new Item();
 		Item i2 = new Item();
@@ -26,7 +27,7 @@ public class Main {
 
 		System.out.println("After equipping " + hero);
 		System.out.println();
-		hero.unequipItem(i1);
+		hero.unequipItem(hero.inventory.getItem(0));
 		System.out.println("After unequipping " + hero);
 		System.out.println();
 		System.out.println(hero.inventory);
@@ -34,7 +35,7 @@ public class Main {
 
 		// SimplePlayer music = new SimplePlayer();
 		// Map m = new Map(10);
-		// Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 		// System.out.print("Give your character a name : ");
 		// Hero hero = new Hero(sc.nextLine(), 800, 50, 7000, 20, 10, 10);
 		// System.out.println("Character created.");

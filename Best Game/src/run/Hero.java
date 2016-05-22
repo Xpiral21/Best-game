@@ -84,6 +84,7 @@ public class Hero extends Unit {
 	public void equipItem(Item item) {
 		ArrayList<Item> items = equippedItems.getItems();
 		boolean alreadyEquipped = false;
+		int similarItem = 0;
 		ArrayList<String> itemType = new ArrayList();
 		if (item.getName().contains("Helmet")) {
 			itemType.add("Helmet");
@@ -110,6 +111,7 @@ public class Hero extends Unit {
 			for (int j = 0; j < itemType.size(); j++) {
 				if (items.get(i).getName().contains(itemType.get(j))) {
 					alreadyEquipped = true;
+					similarItem = i;
 				}
 			}
 		}
@@ -122,8 +124,19 @@ public class Hero extends Unit {
 			this.setEvasion(this.getEvasion() + item.getEvasion());
 			this.setAccuracy(this.getAccuracy() + item.getAccuracy());
 			equippedItems.addItem(item);
+			System.out.println("You have equipped " + item.getName());
+		} else {
+			this.setMaxHitPoints(this.getMaxHitPoints() + item.getMaxHitPoints());
+			this.setArmor(this.getArmor() + item.getArmor());
+			this.setMaxDamage(this.getMaxDamage() + item.getMaxDamage());
+			this.setMinDamage(this.getMinDamage() + item.getMinDamage());
+			this.setEvasion(this.getEvasion() + item.getEvasion());
+			this.setAccuracy(this.getAccuracy() + item.getAccuracy());
+			System.out.println("You have swapped " + equippedItems.getItem(similarItem).getName() + " with " + item.getName());
+			unequipItem(equippedItems.getItem(similarItem));
+
 		}
-		System.out.println("You have equipped " + item.getName());
+
 	}
 
 	public void unequipItem(Item item) {

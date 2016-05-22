@@ -9,6 +9,9 @@ public class EquippedItems {
 	public ArrayList<Item> getItems() {
 		return items;
 	}
+	public Item getItem(int i){
+		return items.get(i);
+	}
 	public void addItem(Item item){
 		items.add(item);
 	}
