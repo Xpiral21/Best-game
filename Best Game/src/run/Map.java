@@ -60,8 +60,8 @@ public class Map {
     }
 
     public void NewMap(int n) {
-        Monster monster1 = new Monster("Loki", 800, 50, 75, 20, 10, 10);
-        Monster monster2 = new Monster("Loki 2", 800, 50, 75, 20, 10, 10);
+        Monster monster1 = new Monster("Loki", 800, 50, 75, 20, 10, 10,10);
+        Monster monster2 = new Monster("Loki 2", 800, 50, 75, 20, 10, 10,10);
         ArrayList <Monster> allMonsters=new ArrayList<>();
         allMonsters.add(monster1);
         allMonsters.add(monster2);

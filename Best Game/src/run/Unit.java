@@ -17,11 +17,11 @@ public abstract class Unit {
 	private int evasion; // percentage of miss
 	private int mana;
 	private int accuracy;
+	private int gold;
 
-	public Unit(String name,  int maxHitPoints, int armor, int maxDamage,
-			int minDamage, int evasion, int accuracy) {
+	public Unit(String name, int maxHitPoints, int armor, int maxDamage, int minDamage, int evasion, int accuracy) {
 		this.name = name;
-		
+
 		this.maxHitPoints = maxHitPoints;
 		this.currentHitPoints = maxHitPoints;
 		this.armor = armor;
@@ -29,7 +29,8 @@ public abstract class Unit {
 		this.minDamage = minDamage;
 		this.evasion = evasion;
 		this.accuracy = accuracy;
-		this.description = name+" has "+maxHitPoints+" max HP"+" and does between "+minDamage+"-"+maxDamage+" DMG";
+		this.description = name + " has " + maxHitPoints + " max HP" + " and does between " + minDamage + "-"
+				+ maxDamage + " DMG";
 	}
 
 	// abstract methods shared between all UNITS
@@ -47,7 +48,7 @@ public abstract class Unit {
 	public final Random random = new Random();
 
 	// end abstract methods shared between all UNITS
-	
+
 	void defend(Unit unit, String attackType) {
 		if (attackType.equals("a")) {
 			int attackStrengthNormal = unit.attack();
@@ -75,6 +76,7 @@ public abstract class Unit {
 					getArmor(), getStatus());
 		}
 	}
+
 	int getDmgReduction() {
 		int dmgRed = (armor * 99) / (armor + 200) + 1;
 		return dmgRed;
@@ -91,6 +93,10 @@ public abstract class Unit {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public int getGold() {
+		return gold;
 	}
 
 	public int getMaxHitPoints() {
@@ -141,6 +147,9 @@ public abstract class Unit {
 		this.armor = armor;
 	}
 
+	public void setGold(int gold) {
+		this.gold=gold;
+	}
 	public void setMaxDamage(int maxDamage) {
 		this.maxDamage = maxDamage;
 	}
@@ -160,6 +169,5 @@ public abstract class Unit {
 	public void setAccuracy(int accuracy) {
 		this.accuracy = accuracy;
 	}
-
 
 }

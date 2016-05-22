@@ -13,7 +13,7 @@ public class Item {
     double rand2 = Math.random();
     double rand3 = Math.random() * 6;
     int caseNumber = (int) (Math.random() * 3 + 1);
-
+    private int value = (int) ((Math.random()*20)+10);
     public Item() {
 
 
@@ -114,7 +114,9 @@ public class Item {
     public int getEvasion() {
         return evasion;
     }
-
+    public int getValue(){
+    	return value;
+    }
     public int getAccuracy() {
         return accuracy;
     }

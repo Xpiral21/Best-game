@@ -134,6 +134,7 @@ public class Hero extends Unit {
 			this.setAccuracy(this.getAccuracy() + item.getAccuracy());
 			System.out.println("You have swapped " + equippedItems.getItem(similarItem).getName() + " with " + item.getName());
 			unequipItem(equippedItems.getItem(similarItem));
+			equippedItems.addItem(item);
 
 		}
 

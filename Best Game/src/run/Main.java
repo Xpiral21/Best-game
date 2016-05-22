@@ -1,12 +1,27 @@
 package run;
 
-
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		
-		Hero hero = new Hero("Hero", 800, 0, 0, 0, 0, 0);
+		Hero hero = new Hero("Hero", 1000, 0, 0, 0, 0, 0);
+		Trader t = new Trader();
+		System.out.println(t.inventory);
+		System.out.println("Buy an item by typing it's number");
+		hero.inventory.addItem(t.buyItem(sc.nextInt()));
+		hero.equipItem(hero.inventory.getItem(0));	
+		System.out.println(hero);
+		
+		
+		
+		
+		
+		
+		
+	/*	Hero hero = new Hero("Hero", 800, 0, 0, 0, 0, 0);
 		Item i1 = new Item();
 		Item i2 = new Item();
 		Item i3 = new Item();
@@ -27,12 +42,10 @@ public class Main {
 
 		System.out.println("After equipping " + hero);
 		System.out.println();
-		hero.unequipItem(hero.inventory.getItem(0));
-		System.out.println("After unequipping " + hero);
 		System.out.println();
 		System.out.println(hero.inventory);
-		System.out.println(hero.equippedItems);
-
+		System.out.println(hero.equippedItems);*/
+////////////////////////////////////////////////////////////////
 		// SimplePlayer music = new SimplePlayer();
 		// Map m = new Map(10);
 		//Scanner sc = new Scanner(System.in);
