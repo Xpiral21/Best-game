@@ -31,6 +31,9 @@ public class Battle {
                 break;
             }
         }
+        if(!monster.isAlive()){
+        	player.setGold(player.getGold()+(int)(Math.random()*10)+10);
+        }
 
     }
 }

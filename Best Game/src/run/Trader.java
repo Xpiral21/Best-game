@@ -10,10 +10,13 @@ public class Trader {
 		}
 	}
 
-	public Item buyItem(int i) {
-		Item copy = inventory.getItem(i);
-		inventory.removeItem(i);
-		return copy ;
+	public void buyItem(int i, Hero hero) {
+
+			Item copy = inventory.getItem(i);
+			inventory.removeItem(i);
+			hero.inventory.addItem(copy);
+			hero.setGold(hero.getGold() - copy.getValue());
+		
 	}
 
 }
