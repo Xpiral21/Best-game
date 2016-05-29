@@ -40,8 +40,7 @@ public class Main {
 						t.buyItem(itemNumber, hero);
 						hero.equipItem(hero.inventory.getItem(hero.inventory.getSize() - 1));
 						System.out.println(hero);
-					}
-					else
+					} else
 						System.out.println("Shooo peasant!");
 				}
 			} catch (IOException e) {

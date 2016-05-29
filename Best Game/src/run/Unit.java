@@ -18,6 +18,9 @@ public abstract class Unit {
 	private int mana;
 	private int accuracy;
 	private int gold;
+	private int level;
+
+
 
 	public Unit(String name, int maxHitPoints, int armor, int maxDamage, int minDamage, int evasion, int accuracy) {
 		this.name = name;
@@ -98,7 +101,13 @@ public abstract class Unit {
 	public int getGold() {
 		return gold;
 	}
+	public int getLevel() {
+		return level;
+	}
 
+	public void setLevel(int level) {
+		this.level = level;
+	}
 	public int getMaxHitPoints() {
 		return maxHitPoints;
 	}
