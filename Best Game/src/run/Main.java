@@ -1,18 +1,22 @@
 package run;
 
+import java.awt.EventQueue;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
 
+		GUI frame = new GUI();
+		frame.setVisible(true);
+		System.out.println("Enter your name:");
+		Scanner sc = new Scanner(System.in);
+		String stdin = sc.nextLine();
 		Hero hero = new Hero("Hero", 1000, 100, 200, 100, 100, 100);
 
 		// SimplePlayer music = new SimplePlayer();
 		Map m = new Map(10);
-		System.out.print("Give your character a name : ");
 
 		System.out.println("Character created.");
 
