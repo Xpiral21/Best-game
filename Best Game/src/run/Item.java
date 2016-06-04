@@ -9,11 +9,12 @@ public class Item {
     private int accuracy = 0;
     private int maxDamage = 0;
     private int minDamage = 0;
-    int rand = (int) (Math.random() * 20) + 1;
-    double rand2 = Math.random();
-    double rand3 = Math.random() * 6;
-    int caseNumber = (int) (Math.random() * 3 + 1);
+    private int rand = (int) (Math.random() * 20) + 1;
+    private double rand2 = Math.random();
+    private double rand3 = Math.random() * 6;
+    private int caseNumber = (int) (Math.random() * 3 + 1);
     private int value = (int) ((Math.random()*20)+10);
+    private String itemType;
     public Item() {
 
 
@@ -69,22 +70,30 @@ public class Item {
         if (rand2 < 0.5) {
             if (rand3 < 1) {
                 name = name.concat(" Helmet");
+                itemType="Helmet";
             } else if (rand3 < 2) {
                 name = name.concat(" Chest");
+                itemType="Chest";
             } else if (rand3 < 3) {
                 name = name.concat(" Gloves");
+                itemType="Gloves";
             } else if (rand3 < 4) {
                 name = name.concat(" Pants");
+                itemType="Pants";
             } else if (rand3 < 6) {
                 name = name.concat(" Boots");
+                itemType="Boots";
             }
         } else {
             if (rand3 < 2) {
                 name = name.concat(" Sword");
+                itemType="Sword";
             } else if (rand3 < 4) {
                 name = name.concat(" Spear");
+                itemType="Spear";
             } else if (rand3 < 6) {
                 name = name.concat(" Staff");
+                itemType="Staff";
             }
         }
         if (hp > 0) {
@@ -99,7 +108,11 @@ public class Item {
     }
 
 
-    public String getName() {
+    public String getItemType() {
+		return itemType;
+	}
+
+	public String getName() {
         return name;
     }
 

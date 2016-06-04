@@ -85,35 +85,15 @@ public class Hero extends Unit {
 		ArrayList<Item> items = equippedItems.getItems();
 		boolean alreadyEquipped = false;
 		int similarItem = 0;
-		ArrayList<String> itemType = new ArrayList();
-		if (item.getName().contains("Helmet")) {
-			itemType.add("Helmet");
-		}
-		if (item.getName().contains("Chest")) {
-			itemType.add("Chest");
-		}
-		if (item.getName().contains("Gloves")) {
-			itemType.add("Gloves");
-		}
-		if (item.getName().contains("Pants")) {
-			itemType.add("Pants");
-		}
-		if (item.getName().contains("Boots")) {
-			itemType.add("Boots");
-		}
-		if (item.getName().contains("Sword") || item.getName().contains("Spear") || item.getName().contains("Staff")) {
-			itemType.add("Sword");
-			itemType.add("Spear");
-			itemType.add("Staff");
-		}
+		
 
 		for (int i = 0; i < items.size(); i++) {
-			for (int j = 0; j < itemType.size(); j++) {
-				if (items.get(i).getName().contains(itemType.get(j))) {
+			
+				if (items.get(i).getName().contains(item.getItemType())) {
 					alreadyEquipped = true;
 					similarItem = i;
 				}
-			}
+			
 		}
 
 		if (alreadyEquipped == false) {
