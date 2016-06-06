@@ -33,6 +33,7 @@ public class GUI extends JFrame {
 	private PrintStream standardOut;
 	static InputStream is;
 	private static String stdin;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -98,7 +99,7 @@ public class GUI extends JFrame {
 
             
 				textField.setText("");
-				
+				Main.t.interrupt();
 			}});
 		
 		GroupLayout gl_panel = new GroupLayout(panel);

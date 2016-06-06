@@ -2,18 +2,39 @@ package run;
 
 import java.awt.EventQueue;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
 public class Main {
+	static Thread t;
 
 	public static void main(String[] args) {
 
-		GUI frame = new GUI();
-		frame.setVisible(true);
+		try {
+			EventQueue.invokeAndWait(new Runnable() {
+				public void run() {
+					try {
+						GUI window = new GUI();
+						window.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+		} catch (InvocationTargetException | InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		t = Thread.currentThread ( );
+
 		System.out.println("Enter your name:");
-		Scanner sc = new Scanner(System.in);
-		String stdin = sc.nextLine();
-		Hero hero = new Hero("Hero", 1000, 100, 200, 100, 100, 100);
+		try {
+			Thread.sleep(5000000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			
+		}
+		Hero hero = new Hero(GUI.getStdin(), 1000, 100, 200, 100, 100, 100);
 
 		// SimplePlayer music = new SimplePlayer();
 		Map m = new Map(10);
@@ -39,7 +60,7 @@ public class Main {
 					Trader t = new Trader();
 					System.out.println(t.inventory);
 					System.out.println("Buy an item by typing it's number");
-					int itemNumber = sc.nextInt();
+					int itemNumber = 5;
 					if (hero.getGold() >= t.inventory.getItem(itemNumber).getValue()) {
 						t.buyItem(itemNumber, hero);
 						hero.equipItem(hero.inventory.getItem(hero.inventory.getSize() - 1));
@@ -54,6 +75,8 @@ public class Main {
 
 		System.out.println("YOU LOST!");
 	}
+
+	
 }
 
 /*
