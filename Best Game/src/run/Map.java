@@ -46,8 +46,18 @@ public class Map {
             System.out.print(" West (w)");
         }
         System.out.print(" ? ");
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String direction = in.readLine();
+        
+        try {
+			synchronized (Main.gigi) {
+				Main.gigi.wait();
+			}
+
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+
+		}
+        
+        String direction = GUI.getStdin();
         if (direction.equals("n") && northPossible) {
             player.charLocation[1]++;
         } else if (direction.equals("s") && southPossible) {

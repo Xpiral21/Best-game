@@ -33,7 +33,7 @@ public class GUI extends JFrame {
 	private PrintStream standardOut;
 	static InputStream is;
 	private static String stdin;
-	
+
 	/**
 	 * Launch the application.
 	 */
@@ -92,16 +92,19 @@ public class GUI extends JFrame {
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				stdin=textArea.getText();
+				stdin = textField.getText();
 
-            
 				textField.setText("");
-				Main.t.interrupt();
-			}});
-		
+
+				synchronized (Main.gigi) {
+					Main.gigi.notify();
+				}
+			}
+		});
+
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
 				.createSequentialGroup()
@@ -117,16 +120,14 @@ public class GUI extends JFrame {
 								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(label_1))
 						.addComponent(list_1, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE))
 				.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup().addContainerGap()
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(lblHp)
-								.addComponent(label))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(lblAtk)
-								.addComponent(label_1))
-						.addGap(18).addComponent(list, GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE)
-						.addGap(18).addComponent(list_1, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(27, Short.MAX_VALUE))
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
+				.createSequentialGroup().addContainerGap()
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(lblHp).addComponent(label))
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(lblAtk).addComponent(label_1))
+				.addGap(18).addComponent(list, GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE).addGap(18)
+				.addComponent(list_1, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
+				.addContainerGap(27, Short.MAX_VALUE))
 				.addGroup(Alignment.TRAILING,
 						gl_panel.createSequentialGroup()
 								.addComponent(textArea, GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE).addGap(18)

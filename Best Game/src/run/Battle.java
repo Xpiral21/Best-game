@@ -6,34 +6,42 @@ import java.io.InputStreamReader;
 
 public class Battle {
 
-    public Battle(Hero player, Monster monster) throws IOException {
-        System.out.println("You encounter " + monster.getDescription() + "\n");
-        System.out.println("Battle starts (" + player.getStatus() + " VS " + monster.getStatus() + ")");
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("Attack (a),use skill (s), heal (h) or run away (r)? ");
-        while (player.isAlive() && monster.isAlive()) {
-        	System.out.println();
-          
-            String action = in.readLine();
-            if (action.equals("h")) {
-                player.heal();
-                player.defend(monster, "a");
-            } else if (action.equals("s")) {
-                monster.defend(player, "s");
-                player.defend(monster, "a");
-            } else if (action.equals("a")) {
-                monster.defend(player, "a");
-                player.defend(monster, "a");
-            } else if (action.equals("r")) {
-                player.defend(monster, "a");
-                player.charLocation[0] = player.prevLocation[0];
-                player.charLocation[1] = player.prevLocation[1];
-                break;
-            }
-        }
-        if(!monster.isAlive()){
-        	player.setGold(player.getGold()+(int)(Math.random()*10)+10);
-        }
+	public Battle(Hero player, Monster monster) throws IOException {
+		System.out.println("You encounter " + monster.getDescription() + "\n");
+		System.out.println("Battle starts (" + player.getStatus() + " VS " + monster.getStatus() + ")");
+		
+		System.out.print("Attack (a),use skill (s), heal (h) or run away (r)? ");
+		while (player.isAlive() && monster.isAlive()) {
+			System.out.println();
+			try {
+				synchronized (Main.gigi) {
+					Main.gigi.wait();
+				}
 
-    }
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+
+			}
+			String action = GUI.getStdin();
+			if (action.equals("h")) {
+				player.heal();
+				player.defend(monster, "a");
+			} else if (action.equals("s")) {
+				monster.defend(player, "s");
+				player.defend(monster, "a");
+			} else if (action.equals("a")) {
+				monster.defend(player, "a");
+				player.defend(monster, "a");
+			} else if (action.equals("r")) {
+				player.defend(monster, "a");
+				player.charLocation[0] = player.prevLocation[0];
+				player.charLocation[1] = player.prevLocation[1];
+				break;
+			}
+		}
+		if (!monster.isAlive()) {
+			player.setGold(player.getGold() + (int) (Math.random() * 10) + 10);
+		}
+
+	}
 }
