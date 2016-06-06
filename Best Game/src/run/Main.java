@@ -29,7 +29,10 @@ public class Main {
 
 		System.out.println("Enter your name:");
 		try {
-			Thread.sleep(5000000);
+			synchronized (t) {
+				t.wait();
+			}
+			
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			
