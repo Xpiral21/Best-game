@@ -14,7 +14,7 @@ public class MainThread extends Thread {
 			// TODO Auto-generated catch block
 
 		}
-		Hero hero = new Hero(GUI.getStdin(), 1000, 100, 200, 100, 100, 100);
+		Hero hero = new Hero(GUI.getStdin(), 10, 100, 200, 10, 10, 10);
 
 		// SimplePlayer music = new SimplePlayer();
 		Map m = new Map(10);
@@ -52,8 +52,9 @@ public class MainThread extends Thread {
 				e.printStackTrace();
 			}
 		}
-
+		SQL.recordHighScore(hero.getName(), hero.getGold());
 		System.out.println("YOU LOST!");
+		SQL.getHighScores();
 	}
 
 }

@@ -82,7 +82,7 @@ public class Map {
                 random = (int) (Math.random() * 100);
                 if (random > 70) {
                     map[i][j] = new MonsterRoom(allMonsters);
-                } else if (random > 50) {
+                } else if (random > 20) {
                     map[i][j] = new CityRoom(t);
                 } else {
                     map[i][j] = new EmptyRoom();
