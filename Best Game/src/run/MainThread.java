@@ -52,9 +52,9 @@ public class MainThread extends Thread {
 				e.printStackTrace();
 			}
 		}
-		SQL.recordHighScore(hero.getName(), hero.getGold());
+		//SQL.recordHighScore(hero.getName(), hero.getGold());
 		System.out.println("YOU LOST!");
-		SQL.getHighScores();
+		//SQL.getHighScores();
 	}
 
 }
