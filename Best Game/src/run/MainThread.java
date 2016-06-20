@@ -40,7 +40,18 @@ public class MainThread extends Thread {
 					Trader t = new Trader();
 					System.out.println(t.inventory);
 					System.out.println("Buy an item by typing it's number");
-					int itemNumber = 5;
+					try {
+						synchronized (Main.gigi) {
+							Main.gigi.wait();
+						}
+
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+
+					}
+					
+					int itemNumber=Integer.parseInt(GUI.getStdin());
+					
 					if (hero.getGold() >= t.inventory.getItem(itemNumber).getValue()) {
 						t.buyItem(itemNumber, hero);
 						hero.equipItem(hero.inventory.getItem(hero.inventory.getSize() - 1));

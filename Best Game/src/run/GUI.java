@@ -25,6 +25,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.border.BevelBorder;
 import javax.swing.JTextField;
+import javax.swing.JScrollPane;
 
 public class GUI extends JFrame {
 	private static JTextArea textArea;
@@ -65,31 +66,32 @@ public class GUI extends JFrame {
 		panel.setBounds(0, 0, 779, 569);
 		contentPane.add(panel);
 
-		this.textArea = new JTextArea();
-		textArea.setLineWrap(true);
-		textArea.setEditable(false);
-		PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
-
 		standardOut = System.out;
 
-		System.setOut(printStream);
-		System.setErr(printStream);
+		
 
 		JLabel lblHp = new JLabel("HP");
+		lblHp.setBounds(560, 11, 13, 14);
 
 		JLabel label = new JLabel("0");
+		label.setBounds(591, 11, 6, 14);
 
 		JLabel lblAtk = new JLabel("ATK");
+		lblAtk.setBounds(560, 31, 19, 14);
 
 		JLabel label_1 = new JLabel("0");
+		label_1.setBounds(589, 31, 6, 14);
 
 		JList list = new JList();
+		list.setBounds(560, 63, 209, 245);
 		list.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 
 		JList list_1 = new JList();
+		list_1.setBounds(560, 326, 210, 216);
 		list_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 
 		textField = new JTextField();
+		textField.setBounds(10, 514, 532, 20);
 		textField.setColumns(10);
 		textField.addActionListener(new ActionListener() {
 
@@ -104,36 +106,25 @@ public class GUI extends JFrame {
 				}
 			}
 		});
-
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
-				.createSequentialGroup()
-				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup().addContainerGap().addComponent(textField,
-								GroupLayout.PREFERRED_SIZE, 532, GroupLayout.PREFERRED_SIZE))
-						.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 542, GroupLayout.PREFERRED_SIZE))
-				.addGap(18)
-				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(list, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panel.createSequentialGroup().addComponent(lblHp).addGap(18).addComponent(label))
-						.addGroup(gl_panel.createSequentialGroup().addComponent(lblAtk)
-								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(label_1))
-						.addComponent(list_1, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE))
-				.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
-				.createSequentialGroup().addContainerGap()
-				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(lblHp).addComponent(label))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(lblAtk).addComponent(label_1))
-				.addGap(18).addComponent(list, GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE).addGap(18)
-				.addComponent(list_1, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
-				.addContainerGap(27, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING,
-						gl_panel.createSequentialGroup()
-								.addComponent(textArea, GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE).addGap(18)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(35)));
-		panel.setLayout(gl_panel);
+		panel.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 532, 492);
+		panel.add(scrollPane);
+		
+				this.textArea = new JTextArea();
+				scrollPane.setViewportView(textArea);
+				textArea.setLineWrap(true);
+				textArea.setEditable(false);
+				PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
+				System.setOut(printStream);
+				System.setErr(printStream);
+		panel.add(textField);
+		panel.add(list);
+		panel.add(lblHp);
+		panel.add(label);
+		panel.add(lblAtk);
+		panel.add(label_1);
+		panel.add(list_1);
 	}
 }
