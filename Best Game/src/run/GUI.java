@@ -68,8 +68,6 @@ public class GUI extends JFrame {
 
 		standardOut = System.out;
 
-		
-
 		JLabel lblHp = new JLabel("HP");
 		lblHp.setBounds(560, 11, 13, 14);
 
@@ -107,18 +105,18 @@ public class GUI extends JFrame {
 			}
 		});
 		panel.setLayout(null);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 11, 532, 492);
 		panel.add(scrollPane);
-		
-				this.textArea = new JTextArea();
-				scrollPane.setViewportView(textArea);
-				textArea.setLineWrap(true);
-				textArea.setEditable(false);
-				PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
-				System.setOut(printStream);
-				System.setErr(printStream);
+
+		this.textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
+		textArea.setLineWrap(true);
+		textArea.setEditable(false);
+		PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
+		System.setOut(printStream);
+		System.setErr(printStream);
 		panel.add(textField);
 		panel.add(list);
 		panel.add(lblHp);

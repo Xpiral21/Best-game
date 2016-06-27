@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
 public class Main {
-	static MonitorObject gigi=new MonitorObject();
+	static MonitorObject gigi = new MonitorObject();
 	static Thread t;
 
 	public static void main(String[] args) {
@@ -23,13 +23,13 @@ public class Main {
 				}
 			});
 		} catch (InvocationTargetException | InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		t = new MainThread();
 		t.start();
 
-	}}
+	}
+}
 
 /*
  * if (m.getRoom(hero.charLocation[0], hero.charLocation[1]) instanceof

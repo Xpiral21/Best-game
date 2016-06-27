@@ -4,19 +4,24 @@ public class Trader {
 	Inventory inventory = new Inventory();
 
 	public Trader() {
-		for (int i = 0; i < 5; i++) {
+		int items = (int) (Math.random() * 4) + 1;
+		for (int i = 0; i < items; i++) {
 			Item item = new Item();
 			inventory.addItem(item);
 		}
 	}
 
 	public void buyItem(int i, Hero hero) {
+		try {
+			if (i < inventory.getSize()) {
+				Item copy = inventory.getItem(i);
+				inventory.removeItem(i);
+				hero.inventory.addItem(copy);
+				hero.setGold(hero.getGold() - copy.getValue());
+			}
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("Try a real number.");
+		}
 
-			Item copy = inventory.getItem(i);
-			inventory.removeItem(i);
-			hero.inventory.addItem(copy);
-			hero.setGold(hero.getGold() - copy.getValue());
-		
 	}
-
 }
