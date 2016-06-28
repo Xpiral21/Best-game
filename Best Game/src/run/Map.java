@@ -24,7 +24,7 @@ public class Map {
 	private int random;
 
 	private boolean roomExists(int x, int y) {
-		return x < mapSize && y < mapSize||x>0||y>0;
+		return x < mapSize && y < mapSize && x>=0 && y>=0;
 	}
 
 	public void movePlayer(Hero player) throws IOException {
