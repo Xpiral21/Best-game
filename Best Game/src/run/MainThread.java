@@ -14,10 +14,12 @@ public class MainThread extends Thread {
 			// TODO Auto-generated catch block
 
 		}
-		Hero hero = new Hero(GUI.getStdin(), 2500, 0, 20000, 100, 10, 10);
+		Hero hero = new Hero(GUI.getStdin(), 2500, 0, 200, 100, 10, 10);
 		System.out.println(" " + hero.getName());
 		//SimplePlayer music = new SimplePlayer();
-		Map m = new Map(10);
+		int mapLevel=1;
+		Map m = new Map(10,mapLevel);
+
 		while (hero.getCurrentHitPoints() > 0) {
 			System.out
 					.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
@@ -36,10 +38,12 @@ public class MainThread extends Thread {
 				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof BossRoom) {
 					BossRoom temp = (BossRoom) (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()));
 					Battle b = new Battle(hero, temp.getMonster());
+					if(!temp.getMonster().isAlive()){
 					System.out.println("Current Gold : " + hero.getGold());
 					System.out.println(temp.getMonster().getName() + " is dead,you delve deeper into the dungeon.");
-					m = new Map(10);
-					hero.setCurrentHitPoints(hero.getMaxHitPoints());
+					mapLevel++;
+					m = new Map(10,mapLevel);
+					hero.setCurrentHitPoints(hero.getMaxHitPoints());}
 				}
 				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof CityRoom) {
 					Trader t = new Trader();

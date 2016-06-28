@@ -7,9 +7,9 @@ import java.io.InputStreamReader;
 public class Battle {
 
 	public Battle(Hero player, Monster monster) throws IOException {
-		System.out.println("\n"+"You encounter " + monster.getDescription() + "\n");
+		System.out.println("\n" + "You encounter " + monster.getDescription() + "\n");
 		System.out.println("Battle starts (" + player.getStatus() + " VS " + monster.getStatus() + ")");
-		
+
 		System.out.print("Attack (a),use skill (s), heal (h) or run away (r)? ");
 		while (player.isAlive() && monster.isAlive()) {
 			System.out.println();
@@ -42,9 +42,11 @@ public class Battle {
 		if (!monster.isAlive()) {
 			System.out.println("You stole from a dead body ...");
 			player.setGold(player.getGold() + (int) (Math.random() * 10) + 10);
-			player.setCurrentExperiencePoints((int) (player.getCurrentExperiencePoints()+Math.random()*250));
-			System.out.println("Current XP : "+player.getCurrentExperiencePoints()+"/"+player.getCurrentExperienceRequiered());
+			player.setCurrentExperiencePoints((int) (player.getCurrentExperiencePoints() + Math.random() * 110));
 			player.levelUP();
+			System.out.println("Current XP : " + player.getCurrentExperiencePoints() + "/"	
+					+ player.getCurrentExperienceRequiered());
+			
 		}
 
 	}

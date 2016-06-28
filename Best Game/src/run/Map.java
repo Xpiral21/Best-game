@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Map {
-
+	int level ;
 	private Room[][] map = new Room[10][10];
 	private final int mapSize;
 
@@ -16,15 +16,17 @@ public class Map {
 
 	Trader chichi = new Trader();
 
-	Map(int n) {
+	Map(int n,int level) {
+		this.level=level;
 		NewMap(n);
 		mapSize = n;
+
 	}
 
 	private int random;
 
 	private boolean roomExists(int x, int y) {
-		return x < mapSize && y < mapSize && x>=0 && y>=0;
+		return x < mapSize && y < mapSize && x >= 0 && y >= 0;
 	}
 
 	public void movePlayer(Hero player) throws IOException {
@@ -72,39 +74,40 @@ public class Map {
 	public void NewMap(int n) {
 		ArrayList<Monster> allMonsters = new ArrayList<>();
 		ArrayList<Monster> allBosses = new ArrayList<>();
-		Monster monster1 = new Monster("Golem", 800, 0, 75, 20, 10, 10);
-		Monster monster2 = new Monster("Gnoll", 800, 0, 75, 20, 10, 10);
-		Monster monster3 = new Monster("Duck", 400, 0, 150, 50, 20, 10);
-		Monster monster4 = new Monster("Rocky", 400, 25, 200, 120, 0, 5);
-		Monster monster5 = new Monster("Magical Horse", 250, 0, 230, 100, 50, 10);
-		Monster monster6 = new Monster("Duckling", 300, 0, 190, 100, 0, 10);
-		Monster monster7 = new Monster("Gnoll", 900, 3, 210, 120, 0, 10);
-		Monster monster8 = new Monster("Thief", 300, 5, 120, 80, 20, 10);
-		Monster monster9 = new Monster("Angry peasant", 200, 0, 90, 30, 2, 5);
-		Monster monster10 = new Monster("Zombie", 800, 5, 280, 90, 0, 5);
-		Monster monster11 = new Monster("Cat", 300, 0, 190, 30, 20, 20);
-		Monster monster12 = new Monster("Leprechaun", 600, 0, 130, 90, 0, 12);
-		Monster monster13 = new Monster("Viking", 500, 10, 200, 100, 0, 15);
-		Monster monster14 = new Monster("Wondering Granny", 1000, 0, 390, 30, 0, 5);
-		Monster monster15 = new Monster("Turtle", 700, 2, 190, 100, 0, 10);
-		Monster monster16 = new Monster("Gargoyle", 900, 10, 230, 140, 0, 10);
-		Monster monster17 = new Monster("Tiger", 500, 0, 230, 140, 10, 20);
-		Monster monster18 = new Monster("Stone Golem", 900, 10, 170, 100, 0, 10);
-		Monster monster19 = new Monster("Yhuri", 700, 2, 185, 115, 0, 10);
-		Monster monster20 = new Monster("Ortiss", 560, 0, 200, 120, 0, 10);
-		Monster monster21 = new Monster("Mergos", 700, 0, 200, 140, 0, 10);
-		Monster monster22 = new Monster("Gnik", 695, 0, 190, 90, 0, 10);
-		Monster monster23 = new Monster("Demos", 560, 0, 200, 100, 0, 10);
-		Monster boss1 = new Monster("Brutus", 1200, 0, 200, 100, 0, 10);
-		Monster boss2 = new Monster("Crimson", 1500, 5, 230, 120, 0, 10);
-		Monster boss3 = new Monster("Dervish", 1000, 15, 180, 90, 0, 10);
-		Monster boss4 = new Monster("Eldrich", 2000, 0, 200, 100, 5, 10);
-		Monster boss5 = new Monster("Ragnarok", 2300, 0, 250, 110, 10, 10);
-		Monster boss6 = new Monster("Groot", 3200, 15, 330, 150, 0, 7);
-		Monster boss7 = new Monster("Pharoh", 2500, 30, 290, 160, 0, 20);
-		Monster boss8 = new Monster("Giant Turtle", 4000, 0, 150, 100, 0, 10);
-		Monster boss9 = new Monster("Yhorm", 3200, 10, 230, 140, 0, 10);
-		Monster boss10 = new Monster("High King", 2800, 5, 280, 200, 0, 20);
+		System.out.println(level);
+		Monster monster1 = new Monster("Golem", 800, 0, 75, 20, 10, 10,level);
+		Monster monster2 = new Monster("Gnoll", 800, 0, 75, 20, 10, 10,level);
+		Monster monster3 = new Monster("Duck", 400, 0, 150, 50, 20, 10,level);
+		Monster monster4 = new Monster("Rocky", 400, 25, 200, 120, 0, 5,level);
+		Monster monster5 = new Monster("Magical Horse", 250, 0, 230, 100, 50, 10,level);
+		Monster monster6 = new Monster("Duckling", 300, 0, 190, 100, 0, 10,level);
+		Monster monster7 = new Monster("Gnoll", 900, 3, 210, 120, 0, 10,level);
+		Monster monster8 = new Monster("Thief", 300, 5, 120, 80, 20, 10,level);
+		Monster monster9 = new Monster("Angry peasant", 200, 0, 90, 30, 2, 5,level);
+		Monster monster10 = new Monster("Zombie", 800, 5, 280, 90, 0, 5,level);
+		Monster monster11 = new Monster("Cat", 300, 0, 190, 30, 20, 20,level);
+		Monster monster12 = new Monster("Leprechaun", 600, 0, 130, 90, 0, 12,level);
+		Monster monster13 = new Monster("Viking", 500, 10, 200, 100, 0, 15,level);
+		Monster monster14 = new Monster("Wondering Granny", 1000, 0, 390, 30, 0, 5,level);
+		Monster monster15 = new Monster("Turtle", 700, 2, 190, 100, 0, 10,level);
+		Monster monster16 = new Monster("Gargoyle", 900, 10, 230, 140, 0, 10,level);
+		Monster monster17 = new Monster("Tiger", 500, 0, 230, 140, 10, 20,level);
+		Monster monster18 = new Monster("Stone Golem", 900, 10, 170, 100, 0, 10,level);
+		Monster monster19 = new Monster("Yhuri", 700, 2, 185, 115, 0, 10,level);
+		Monster monster20 = new Monster("Ortiss", 560, 0, 200, 120, 0, 10,level);
+		Monster monster21 = new Monster("Mergos", 700, 0, 200, 140, 0, 10,level);
+		Monster monster22 = new Monster("Gnik", 695, 0, 190, 90, 0, 10,level);
+		Monster monster23 = new Monster("Demos", 560, 0, 200, 100, 0, 10,level);
+		Monster boss1 = new Monster("Brutus", 1200, 0, 200, 100, 0, 10,level);
+		Monster boss2 = new Monster("Crimson", 1500, 5, 230, 120, 0, 10,level);
+		Monster boss3 = new Monster("Dervish", 1000, 15, 180, 90, 0, 10,level);
+		Monster boss4 = new Monster("Eldrich", 2000, 0, 200, 100, 5, 10,level);
+		Monster boss5 = new Monster("Ragnarok", 2300, 0, 250, 110, 10, 10,level);
+		Monster boss6 = new Monster("Groot", 3200, 15, 330, 150, 0, 7,level);
+		Monster boss7 = new Monster("Pharoh", 2500, 30, 290, 160, 0, 20,level);
+		Monster boss8 = new Monster("Giant Turtle", 4000, 0, 150, 100, 0, 10,level);
+		Monster boss9 = new Monster("Yhorm", 3200, 10, 230, 140, 0, 10,level);
+		Monster boss10 = new Monster("High King", 2800, 5, 280, 200, 0, 20,level);
 
 		allMonsters.add(monster1);
 		allMonsters.add(monster2);
@@ -146,9 +149,9 @@ public class Map {
 			for (int j = 0; j < n; j++) {
 
 				random = (int) (Math.random() * 100);
-				if (random > 30) {
+				if (random > 40) {
 					map[i][j] = new EmptyRoom();
-				} else if (random > 20) {
+				} else if (random > 32) {
 					map[i][j] = new CityRoom(t);
 				} else if (random >= 0) {
 					map[i][j] = new MonsterRoom(allMonsters);

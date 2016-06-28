@@ -69,16 +69,16 @@ public class GUI extends JFrame {
 		standardOut = System.out;
 
 		JLabel lblHp = new JLabel("HP");
-		lblHp.setBounds(560, 11, 13, 14);
+		lblHp.setBounds(560, 11, 130, 14);
 
 		JLabel label = new JLabel("0");
-		label.setBounds(591, 11, 6, 14);
+		label.setBounds(591, 11, 60, 14);
 
 		JLabel lblAtk = new JLabel("ATK");
-		lblAtk.setBounds(560, 31, 19, 14);
+		lblAtk.setBounds(560, 31, 190, 14);
 
 		JLabel label_1 = new JLabel("0");
-		label_1.setBounds(589, 31, 6, 14);
+		label_1.setBounds(589, 31, 60, 14);
 
 		JList list = new JList();
 		list.setBounds(560, 63, 209, 245);

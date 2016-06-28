@@ -4,10 +4,17 @@ public class Monster extends Unit {
 
 	Skills monsterSkills;
 
-	public Monster(String name, int maxHitPoints, int armor, int maxDamage, int minDamage,
-			int evasion, int accuracy) {
+	public Monster(String name, int maxHitPoints, int armor, int maxDamage, int minDamage, int evasion, int accuracy,
+			int level) {
 		super(name, maxHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
 		monsterSkills = new MonsterSkills();
+		this.setLevel(level);
+		this.setMaxHitPoints((int) (this.getMaxHitPoints() * (1+ (0.1*level))));
+		this.setCurrentHitPoints((int) (this.getCurrentHitPoints() * (1+ (0.1*level))));
+		this.setMaxDamage((int) (this.getMaxDamage() * (1+ (0.1*level))));
+		this.setMinDamage((int) (this.getMinDamage() * (1+ (0.1*level))));
+		this.setEvasion((int) (this.getEvasion() * (1+ (0.1*level))));
+		this.setArmor((int) (this.getArmor() * (1+ (0.1*level))));
 
 	}
 
@@ -34,7 +41,7 @@ public class Monster extends Unit {
 
 	@Override
 	String getStatus() {
-		return this.getName()+"s HP is " + getCurrentHitPoints();
+		return this.getName() + "s HP is " + getCurrentHitPoints();
 	}
 
 	@Override

@@ -103,6 +103,9 @@ public class Hero extends Unit {
 			this.setMaxDamage((int) (this.getMaxDamage() * 1.08));
 			this.setMinDamage((int) (this.getMinDamage()*1.08));
 			this.setMaxHitPoints((int) (this.getMaxHitPoints() * 1.08));
+			this.setAccuracy((int)(this.getAccuracy()*1.08));
+			this.setArmor((int)(this.getArmor()*1.08));
+			this.setEvasion((int)(this.getEvasion()*1.08));
 		}
 	}
 

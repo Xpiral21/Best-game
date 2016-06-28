@@ -52,8 +52,9 @@ public abstract class Unit {
 	void defend(Unit unit, String attackType) {
 		if (attackType.equals("a")) {
 			int attackStrengthNormal = unit.attack();
-
-			if (getEvasion() * (1 + (Math.random() * 1)) > unit.getAccuracy() * (1 + (Math.random() * 1))) {
+			int chanceToEvade=((evasion*99)/(evasion+200)+1)-((unit.accuracy*99)/(unit.accuracy+200)+1)/10;
+			int rand=(int) (Math.random()*100);
+			if (rand<=chanceToEvade) {
 				System.out.println(unit.getName() + " missed.");
 			} else {
 				int remainingHitPoints = (getCurrentHitPoints() > attackStrengthNormal) ? getCurrentHitPoints()
