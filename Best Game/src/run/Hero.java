@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Hero extends Unit {
 	int prevLocation[] = { 4, 5 };
-	int charLocation[] = { 5, 5 };
+	int charLocation[] = { (int)(Math.random()*9), (int)(Math.random()*9) };
 	Skills heroSkills;
 	private int numPotions = 2;
 	Inventory inventory = new Inventory();
@@ -78,7 +78,7 @@ public class Hero extends Unit {
 
 	@Override
 	String getStatus() {
-		return "Your HP is " + getCurrentHitPoints();
+		return ", your HP is " + getCurrentHitPoints();
 	}
 
 	public void equipItem(Item item) {

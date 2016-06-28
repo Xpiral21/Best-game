@@ -70,9 +70,12 @@ public class Map {
     }
 
     public void NewMap(int n) {
-        Monster monster1 = new Monster("Loki", 800, 50, 75, 20, 10, 10);
-        Monster monster2 = new Monster("Loki 2", 800, 50, 75, 20, 10, 10);
+        Monster monster1 = new Monster("Golem", 800, 0, 75, 20, 10, 10);
+        Monster monster2 = new Monster("Gnoll", 800, 0, 75, 20, 10, 10);
+        Monster boss1 = new Monster("Brutus",1200,0,200,100,0,10);
         ArrayList <Monster> allMonsters=new ArrayList<>();
+        ArrayList <Monster> allBosses = new ArrayList<>();
+        allBosses.add(boss1);
         allMonsters.add(monster1);
         allMonsters.add(monster2);
         Trader t = new Trader();
@@ -89,6 +92,10 @@ public class Map {
                 }
             }
         }
+        int i=(int)(Math.random()*9);
+        int j=(int)(Math.random()*9);
+        map[i][j]=new BossRoom(allBosses);
+        System.out.println("A terrible foe is at X "+i+" Y "+j);
     }
 
     public Room getRoom(int x, int y) {

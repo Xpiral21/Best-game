@@ -36,7 +36,7 @@ public class Monster extends Unit {
 
 	@Override
 	String getStatus() {
-		return "Monsters HP is " + getCurrentHitPoints();
+		return this.getName()+"s HP is " + getCurrentHitPoints();
 	}
 
 	@Override

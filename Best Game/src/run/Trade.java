@@ -2,8 +2,10 @@ package run;
 
 public class Trade {
 	public Trade(Hero h, Trader t) {
+		System.out.println();
+		System.out.println("You have encountered a Trader , you can buy items by typing their number.");
+		System.out.println();
 		System.out.println(t.inventory);
-		System.out.println("Buy an item by typing it's number");
 		int itemNumber = 0;
 		while (itemNumber >= 0 && itemNumber < t.inventory.getSize()) {
 			try {

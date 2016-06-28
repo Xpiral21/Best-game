@@ -32,8 +32,7 @@ public abstract class Unit {
 		this.minDamage = minDamage;
 		this.evasion = evasion;
 		this.accuracy = accuracy;
-		this.description = name + " has " + maxHitPoints + " max HP" + " and does between " + minDamage + "-"
-				+ maxDamage + " DMG";
+		this.description = name + " has " + maxHitPoints + "HP and is pissed off." ;
 	}
 
 	// abstract methods shared between all UNITS
@@ -64,8 +63,8 @@ public abstract class Unit {
 						- (attackStrengthNormal - attackStrengthNormal * getDmgReduction() / 100) : 0;
 
 				setCurrentHitPoints(remainingHitPoints);
-				System.out.printf(getName() + " is hit for %d HP of damage-%d armor (%s)\n", attackStrengthNormal,
-						getArmor(), getStatus());
+				System.out.printf(getName() + " is hit for "+attackStrengthNormal+" HP "+getStatus()+"\n");
+					 ;
 			}
 
 		} else if (attackType == "s") {
@@ -75,8 +74,8 @@ public abstract class Unit {
 					? (getCurrentHitPoints()) - attackStrengthSkill : 0;
 
 			setCurrentHitPoints(remainingHitPoints);
-			System.out.printf(" " + getName() + " is hit for %d HP of damage-%d armor (%s)\n", attackStrengthSkill,
-					getArmor(), getStatus());
+			System.out.printf(" " + getName() + " is hit for %d HP (%s)\n", attackStrengthSkill,
+					 getStatus());
 		}
 	}
 

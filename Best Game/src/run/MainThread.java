@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class MainThread extends Thread {
 	public void run() {
-		System.out.println("Enter your name:");
+		System.out.print("Enter your name:");
 		try {
 			synchronized (Main.gigi) {
 				Main.gigi.wait();
@@ -14,13 +14,10 @@ public class MainThread extends Thread {
 			// TODO Auto-generated catch block
 
 		}
-		Hero hero = new Hero(GUI.getStdin(), 1000, 1000, 2000, 10, 10, 10);
-
+		Hero hero = new Hero(GUI.getStdin(), 2500, 0, 200, 100, 10, 10);
+		System.out.println(" " + hero.getName());
 		// SimplePlayer music = new SimplePlayer();
 		Map m = new Map(10);
-
-		System.out.println("Character created.");
-
 		while (hero.getCurrentHitPoints() > 0) {
 			System.out
 					.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
@@ -36,9 +33,16 @@ public class MainThread extends Thread {
 						System.out.println("Current Gold : " + hero.getGold());
 					}
 				}
+				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof BossRoom) {
+					BossRoom temp = (BossRoom) (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()));
+					Battle b = new Battle(hero, temp.getMonster());
+					System.out.println("Current Gold : " + hero.getGold());
+					System.out.println(temp.getMonster().getName() + " is dead,you delve deeper into the dungeon.");
+					m = new Map(10);
+				}
 				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof CityRoom) {
 					Trader t = new Trader();
-					Trade trade = new Trade(hero,t);
+					Trade trade = new Trade(hero, t);
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
