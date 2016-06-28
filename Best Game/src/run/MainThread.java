@@ -14,7 +14,7 @@ public class MainThread extends Thread {
 			// TODO Auto-generated catch block
 
 		}
-		Hero hero = new Hero(GUI.getStdin(), 2500, 0, 200, 100, 10, 10);
+		Hero hero = new Hero(GUI.getStdin(), 2500, 0, 20000, 100, 10, 10);
 		System.out.println(" " + hero.getName());
 		//SimplePlayer music = new SimplePlayer();
 		Map m = new Map(10);
