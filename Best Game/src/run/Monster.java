@@ -30,8 +30,6 @@ public class Monster extends Unit {
 
 	@Override
 	void surrender() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -41,8 +39,6 @@ public class Monster extends Unit {
 
 	@Override
 	void heal() {
-		// TODO Auto-generated method stub
-
 	}
 
 }

@@ -42,6 +42,9 @@ public class Battle {
 		if (!monster.isAlive()) {
 			System.out.println("You stole from a dead body ...");
 			player.setGold(player.getGold() + (int) (Math.random() * 10) + 10);
+			player.setCurrentExperiencePoints((int) (player.getCurrentExperiencePoints()+Math.random()*250));
+			System.out.println("Current XP : "+player.getCurrentExperiencePoints()+"/"+player.getCurrentExperienceRequiered());
+			player.levelUP();
 		}
 
 	}

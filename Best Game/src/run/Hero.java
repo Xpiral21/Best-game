@@ -3,8 +3,11 @@ package run;
 import java.util.ArrayList;
 
 public class Hero extends Unit {
+	int previousExperienceRequiered = 100;
+	int currentExperienceRequiered = 100;
+	int currentExperiencePoints = 0;
 	int prevLocation[] = { 4, 5 };
-	int charLocation[] = { (int)(Math.random()*9), (int)(Math.random()*9) };
+	int charLocation[] = { 5, 5 };
 	Skills heroSkills;
 	private int numPotions = 2;
 	Inventory inventory = new Inventory();
@@ -16,6 +19,18 @@ public class Hero extends Unit {
 
 	public int getVerticalLocation() {
 		return charLocation[0];
+	}
+
+	public int getCurrentExperienceRequiered() {
+		return currentExperienceRequiered;
+	}
+
+	public int getCurrentExperiencePoints() {
+		return currentExperiencePoints;
+	}
+
+	public void setCurrentExperiencePoints(int currentExperiencePoints) {
+		this.currentExperiencePoints = currentExperiencePoints;
 	}
 
 	public int getHorizontalLocation() {
@@ -76,6 +91,21 @@ public class Hero extends Unit {
 	void surrender() {
 	}
 
+	void levelUP() {
+
+		if (currentExperiencePoints >= currentExperienceRequiered) {
+			int copy = currentExperienceRequiered;
+			currentExperiencePoints = currentExperiencePoints - currentExperienceRequiered;
+			currentExperienceRequiered = (int) (previousExperienceRequiered * 1.3);
+			previousExperienceRequiered = copy;
+			this.setLevel(this.getLevel() + 1);
+			System.out.println("You are now Level " + this.getLevel());
+			this.setMaxDamage((int) (this.getMaxDamage() * 1.08));
+			this.setMinDamage((int) (this.getMinDamage()*1.08));
+			this.setMaxHitPoints((int) (this.getMaxHitPoints() * 1.08));
+		}
+	}
+
 	@Override
 	String getStatus() {
 		return ", your HP is " + getCurrentHitPoints();
@@ -85,15 +115,14 @@ public class Hero extends Unit {
 		ArrayList<Item> items = equippedItems.getItems();
 		boolean alreadyEquipped = false;
 		int similarItem = 0;
-		
 
 		for (int i = 0; i < items.size(); i++) {
-			
-				if (items.get(i).getName().contains(item.getItemType())) {
-					alreadyEquipped = true;
-					similarItem = i;
-				}
-			
+
+			if (items.get(i).getName().contains(item.getItemType())) {
+				alreadyEquipped = true;
+				similarItem = i;
+			}
+
 		}
 
 		if (alreadyEquipped == false) {
@@ -112,7 +141,8 @@ public class Hero extends Unit {
 			this.setMinDamage(this.getMinDamage() + item.getMinDamage());
 			this.setEvasion(this.getEvasion() + item.getEvasion());
 			this.setAccuracy(this.getAccuracy() + item.getAccuracy());
-			System.out.println("You have swapped " + equippedItems.getItem(similarItem).getName() + " with " + item.getName());
+			System.out.println(
+					"You have swapped " + equippedItems.getItem(similarItem).getName() + " with " + item.getName());
 			unequipItem(equippedItems.getItem(similarItem));
 			equippedItems.addItem(item);
 

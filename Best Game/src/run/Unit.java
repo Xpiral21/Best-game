@@ -20,8 +20,6 @@ public abstract class Unit {
 	private int gold;
 	private int level;
 
-
-
 	public Unit(String name, int maxHitPoints, int armor, int maxDamage, int minDamage, int evasion, int accuracy) {
 		this.name = name;
 
@@ -32,7 +30,7 @@ public abstract class Unit {
 		this.minDamage = minDamage;
 		this.evasion = evasion;
 		this.accuracy = accuracy;
-		this.description = name + " has " + maxHitPoints + "HP and is pissed off." ;
+		this.description = name + " has " + maxHitPoints + "HP and is pissed off.";
 	}
 
 	// abstract methods shared between all UNITS
@@ -55,16 +53,15 @@ public abstract class Unit {
 		if (attackType.equals("a")) {
 			int attackStrengthNormal = unit.attack();
 
-			if (getEvasion() * (1 + (int) (Math.random() * ((10 - 1) + 1))) > unit.getAccuracy()
-					* (1 + (int) (Math.random() * ((10 - 1) + 1)))) {
+			if (getEvasion() * (1 + (Math.random() * 1)) > unit.getAccuracy() * (1 + (Math.random() * 1))) {
 				System.out.println(unit.getName() + " missed.");
 			} else {
 				int remainingHitPoints = (getCurrentHitPoints() > attackStrengthNormal) ? getCurrentHitPoints()
 						- (attackStrengthNormal - attackStrengthNormal * getDmgReduction() / 100) : 0;
 
 				setCurrentHitPoints(remainingHitPoints);
-				System.out.printf(getName() + " is hit for "+attackStrengthNormal+" HP "+getStatus()+"\n");
-					 ;
+				System.out.printf(getName() + " is hit for " + attackStrengthNormal + " HP " + getStatus() + "\n");
+				;
 			}
 
 		} else if (attackType == "s") {
@@ -74,8 +71,7 @@ public abstract class Unit {
 					? (getCurrentHitPoints()) - attackStrengthSkill : 0;
 
 			setCurrentHitPoints(remainingHitPoints);
-			System.out.printf(" " + getName() + " is hit for %d HP (%s)\n", attackStrengthSkill,
-					 getStatus());
+			System.out.printf(" " + getName() + " is hit for %d HP (%s)\n", attackStrengthSkill, getStatus());
 		}
 	}
 
@@ -100,6 +96,7 @@ public abstract class Unit {
 	public int getGold() {
 		return gold;
 	}
+
 	public int getLevel() {
 		return level;
 	}
@@ -107,6 +104,7 @@ public abstract class Unit {
 	public void setLevel(int level) {
 		this.level = level;
 	}
+
 	public int getMaxHitPoints() {
 		return maxHitPoints;
 	}
@@ -156,8 +154,9 @@ public abstract class Unit {
 	}
 
 	public void setGold(int gold) {
-		this.gold=gold;
+		this.gold = gold;
 	}
+
 	public void setMaxDamage(int maxDamage) {
 		this.maxDamage = maxDamage;
 	}

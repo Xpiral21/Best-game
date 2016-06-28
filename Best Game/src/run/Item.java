@@ -159,7 +159,7 @@ public class Item {
         if (maxDamage > 0) {
             str = str + "MIN DAMAGE : " + minDamage + System.lineSeparator();
         }
-
+        	str= str + "Gold Value : " + value +System.lineSeparator();
 
         return str;
     }
