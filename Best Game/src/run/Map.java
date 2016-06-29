@@ -151,7 +151,7 @@ public class Map {
 				random = (int) (Math.random() * 100);
 				if (random > 40) {
 					map[i][j] = new EmptyRoom();
-				} else if (random > 0) {
+				} else if (random > 30) {
 					map[i][j] = new CityRoom(t);
 				} else if (random >= 0) {
 					map[i][j] = new MonsterRoom(allMonsters);
