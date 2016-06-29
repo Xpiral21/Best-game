@@ -12,7 +12,7 @@ public class Hero extends Unit {
 	private int numPotions = 2;
 	Inventory inventory = new Inventory();
 	EquippedItems equippedItems = new EquippedItems();
-	Item cu=new Item();
+	
 	
 
 	public Inventory getInventory() {
@@ -70,7 +70,7 @@ public class Hero extends Unit {
 	public Hero(String name, int maxHitPoints, int armor, int maxDamage, int minDamage, int evasion, int accuracy) {
 		super(name, maxHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
 		heroSkills = new HeroSkills();
-		inventory.addItem(cu);
+		
 	}
 
 	@Override

@@ -10,7 +10,7 @@ public class Main {
 	static Thread t;
 
 	public static void main(String[] args) {
-
+		
 		try {
 			EventQueue.invokeAndWait(new Runnable() {
 				public void run() {
