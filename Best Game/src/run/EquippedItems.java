@@ -20,8 +20,8 @@ public class EquippedItems {
 	public void addItem(Item item) {
 		items.add(item);
 		DefaultListModel<Item> listModel_1 = new DefaultListModel();
-		for (int i = 0; i < MainThread.getHero().getEquippedItems().getSize(); i++) {
-			listModel_1.addElement(MainThread.getHero().getEquippedItems().getItem(i));
+		for (int i = 0; i < items.size(); i++) {
+			listModel_1.addElement(items.get(i));
 		}
 		GUI.getList_1().setModel(listModel_1);
 	}

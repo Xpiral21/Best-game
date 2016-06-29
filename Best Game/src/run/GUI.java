@@ -39,8 +39,8 @@ public class GUI extends JFrame {
 	private PrintStream standardOut;
 	static InputStream is;
 	private static String stdin;
-	private static JList list;
-	private static JList list_1;
+	private static JList<Item> list=new JList<Item>();
+	private static JList<Item> list_1=new JList<Item>();
 	
 
 	/**
@@ -81,20 +81,12 @@ public class GUI extends JFrame {
 
 		JLabel label_1 = new JLabel("0");
 
-		setList(new JList());
-		DefaultListModel<Item>listModel = new DefaultListModel();
-		for (int i = 0; i < MainThread.getHero().getInventory().getSize(); i++) {
-			listModel.addElement(MainThread.getHero().getInventory().getItem(i));
-		}
-		getList().setModel(listModel);
+		
+		
 		getList().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 
-		setList_1(new JList());
-		DefaultListModel<Item>listModel_1 = new DefaultListModel();
-		for (int i = 0; i < MainThread.getHero().getEquippedItems().getSize(); i++) {
-			listModel_1.addElement(MainThread.getHero().getEquippedItems().getItem(i));
-		}
-		getList_1().setModel(listModel_1);
+		
+		
 		getList_1().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 
 		textField = new JTextField();
@@ -182,19 +174,19 @@ public class GUI extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 	}
 
-	public static JList getList() {
+	public static JList<Item> getList() {
 		return list;
 	}
 
-	public static void setList(JList list) {
+	public static void setList(JList<Item> list) {
 		GUI.list = list;
 	}
 
-	public static JList getList_1() {
+	public static JList<Item> getList_1() {
 		return list_1;
 	}
 
-	public static void setList_1(JList list_1) {
+	public static void setList_1(JList<Item> list_1) {
 		GUI.list_1 = list_1;
 	}
 }

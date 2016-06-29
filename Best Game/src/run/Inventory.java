@@ -10,8 +10,8 @@ public class Inventory {
 	public void addItem(Item item) {
 		this.inventory.add(item);
 		DefaultListModel<Item>listModel = new DefaultListModel();
-		for (int i = 0; i < MainThread.getHero().getInventory().getSize(); i++) {
-			listModel.addElement(MainThread.getHero().getInventory().getItem(i));
+		for (int i = 0; i < inventory.size(); i++) {
+			listModel.addElement(inventory.get(i));
 		}
 		GUI.getList().setModel(listModel);
 		
@@ -19,8 +19,8 @@ public class Inventory {
 	public void removeItem(int z){
 		inventory.remove(z);
 		DefaultListModel<Item>listModel = new DefaultListModel();
-		for (int i = 0; i < MainThread.getHero().getInventory().getSize(); i++) {
-			listModel.addElement(MainThread.getHero().getInventory().getItem(i));
+		for (int i = 0; i < inventory.size(); i++) {
+			listModel.addElement(inventory.get(i));
 		}
 		GUI.getList().setModel(listModel);
 	}
