@@ -2,6 +2,8 @@ package run;
 
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+
 public class EquippedItems {
 
 	private ArrayList<Item> items = new ArrayList();
@@ -12,10 +14,20 @@ public class EquippedItems {
 
 	public Item getItem(int i) {
 		return items.get(i);
+		
 	}
 
 	public void addItem(Item item) {
 		items.add(item);
+		DefaultListModel<Item> listModel_1 = new DefaultListModel();
+		for (int i = 0; i < MainThread.getHero().getEquippedItems().getSize(); i++) {
+			listModel_1.addElement(MainThread.getHero().getEquippedItems().getItem(i));
+		}
+		GUI.getList_1().setModel(listModel_1);
+	}
+
+	public int getSize() {
+		return items.size();
 	}
 
 	@Override
@@ -35,5 +47,10 @@ public class EquippedItems {
 				items.remove(i);
 			}
 		}
+		DefaultListModel<Item> listModel_1 = new DefaultListModel();
+		for (int i = 0; i < MainThread.getHero().getEquippedItems().getSize(); i++) {
+			listModel_1.addElement(MainThread.getHero().getEquippedItems().getItem(i));
+		}
+		GUI.getList_1().setModel(listModel_1);
 	}
 }

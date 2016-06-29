@@ -2,6 +2,7 @@ package run;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -28,6 +29,8 @@ import javax.swing.JList;
 import javax.swing.border.BevelBorder;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
+import java.awt.Component;
+import javax.swing.Box;
 
 public class GUI extends JFrame {
 	private static JTextArea textArea;
@@ -36,6 +39,9 @@ public class GUI extends JFrame {
 	private PrintStream standardOut;
 	static InputStream is;
 	private static String stdin;
+	private static JList list;
+	private static JList list_1;
+	
 
 	/**
 	 * Launch the application.
@@ -58,46 +64,40 @@ public class GUI extends JFrame {
 	 */
 	public GUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 795, 608);
+		setBounds(100, 100, 951, 661);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 779, 569);
-		contentPane.add(panel);
 
 		standardOut = System.out;
 
 		JLabel lblHp = new JLabel("HP");
-		lblHp.setBounds(560, 11, 130, 14);
 
 		JLabel label = new JLabel("0");
-		label.setBounds(591, 11, 60, 14);
 
 		JLabel lblAtk = new JLabel("ATK");
-		lblAtk.setBounds(560, 31, 190, 14);
 
 		JLabel label_1 = new JLabel("0");
-		label_1.setBounds(589, 31, 60, 14);
 
-		JList list = new JList();
+		setList(new JList());
 		DefaultListModel<Item>listModel = new DefaultListModel();
 		for (int i = 0; i < MainThread.getHero().getInventory().getSize(); i++) {
 			listModel.addElement(MainThread.getHero().getInventory().getItem(i));
 		}
-		list.setModel(listModel);
-		
-		list.setBounds(560, 63, 209, 245);
-		list.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		getList().setModel(listModel);
+		getList().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 
-		JList list_1 = new JList();
-		list_1.setBounds(560, 326, 210, 216);
-		list_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		setList_1(new JList());
+		DefaultListModel<Item>listModel_1 = new DefaultListModel();
+		for (int i = 0; i < MainThread.getHero().getEquippedItems().getSize(); i++) {
+			listModel_1.addElement(MainThread.getHero().getEquippedItems().getItem(i));
+		}
+		getList_1().setModel(listModel_1);
+		getList_1().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 
 		textField = new JTextField();
-		textField.setBounds(10, 514, 532, 20);
 		textField.setColumns(10);
 		textField.addActionListener(new ActionListener() {
 
@@ -112,11 +112,8 @@ public class GUI extends JFrame {
 				}
 			}
 		});
-		panel.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 532, 492);
-		panel.add(scrollPane);
 
 		this.textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
@@ -125,12 +122,79 @@ public class GUI extends JFrame {
 		PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
 		System.setOut(printStream);
 		System.setErr(printStream);
-		panel.add(textField);
-		panel.add(list);
-		panel.add(lblHp);
-		panel.add(label);
-		panel.add(lblAtk);
-		panel.add(label_1);
-		panel.add(list_1);
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 925, Short.MAX_VALUE)
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 569, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(43, Short.MAX_VALUE))
+		);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(10)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(scrollPane)
+						.addComponent(textField, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
+					.addGap(18)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(31)
+							.addComponent(label, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap(274, Short.MAX_VALUE))
+						.addComponent(lblHp, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblAtk, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(29)
+							.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
+						.addComponent(getList(), GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+						.addComponent(getList_1(), GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(11)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 492, GroupLayout.PREFERRED_SIZE)
+							.addGap(11)
+							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(label)
+								.addComponent(lblHp))
+							.addGap(6)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblAtk)
+								.addComponent(label_1))
+							.addGap(18)
+							.addComponent(getList(), GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(getList_1(), GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
+		);
+		panel.setLayout(gl_panel);
+		contentPane.setLayout(gl_contentPane);
+	}
+
+	public static JList getList() {
+		return list;
+	}
+
+	public static void setList(JList list) {
+		GUI.list = list;
+	}
+
+	public static JList getList_1() {
+		return list_1;
+	}
+
+	public static void setList_1(JList list_1) {
+		GUI.list_1 = list_1;
 	}
 }

@@ -2,14 +2,27 @@ package run;
 
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+
 public class Inventory {
 	public ArrayList<Item> inventory = new ArrayList<>();
 
 	public void addItem(Item item) {
 		this.inventory.add(item);
+		DefaultListModel<Item>listModel = new DefaultListModel();
+		for (int i = 0; i < MainThread.getHero().getInventory().getSize(); i++) {
+			listModel.addElement(MainThread.getHero().getInventory().getItem(i));
+		}
+		GUI.getList().setModel(listModel);
+		
 	}
-	public void removeItem(int i){
-		inventory.remove(i);
+	public void removeItem(int z){
+		inventory.remove(z);
+		DefaultListModel<Item>listModel = new DefaultListModel();
+		for (int i = 0; i < MainThread.getHero().getInventory().getSize(); i++) {
+			listModel.addElement(MainThread.getHero().getInventory().getItem(i));
+		}
+		GUI.getList().setModel(listModel);
 	}
 
 	public Item getItem(int i) {
