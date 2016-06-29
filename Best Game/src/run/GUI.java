@@ -17,10 +17,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.border.BevelBorder;
@@ -81,6 +83,12 @@ public class GUI extends JFrame {
 		label_1.setBounds(589, 31, 60, 14);
 
 		JList list = new JList();
+		DefaultListModel<Item>listModel = new DefaultListModel();
+		for (int i = 0; i < MainThread.getHero().getInventory().getSize(); i++) {
+			listModel.addElement(MainThread.getHero().getInventory().getItem(i));
+		}
+		list.setModel(listModel);
+		
 		list.setBounds(560, 63, 209, 245);
 		list.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 

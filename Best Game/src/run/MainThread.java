@@ -3,6 +3,7 @@ package run;
 import java.io.IOException;
 
 public class MainThread extends Thread {
+	private static Hero hero=new Hero(GUI.getStdin(), 2500, 0, 200, 100, 10, 10);;
 	public void run() {
 		System.out.print("Enter your name:");
 		try {
@@ -14,7 +15,7 @@ public class MainThread extends Thread {
 			// TODO Auto-generated catch block
 
 		}
-		Hero hero = new Hero(GUI.getStdin(), 2500, 0, 200, 100, 10, 10);
+		hero.setName(GUI.getStdin());
 		System.out.println(" " + hero.getName());
 		//SimplePlayer music = new SimplePlayer();
 		int mapLevel=1;
@@ -57,5 +58,9 @@ public class MainThread extends Thread {
 		System.out.println("YOU LOST!");
 		// SQL.getHighScores();
 	}
+	public static Hero getHero() {
+		return hero;
+	}
+	
 
 }
