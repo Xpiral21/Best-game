@@ -13,22 +13,24 @@ public class Item {
     private double rand2 = Math.random();
     private double rand3 = Math.random() * 6;
     private int caseNumber = (int) (Math.random() * 3 + 1);
-    private int value = (int) ((Math.random()*20)+10);
+    
     private String itemType;
+    int lvlC=MainThread.getHero().getLevel();
+    private int value = ((int) ((Math.random()*20)+10))+(45*lvlC);
     public Item() {
 
 
         if (rand2 < 0.5) {
-            armor = rand * 2;
+            armor = rand * 2+(13*lvlC);
             switch (caseNumber) {
                 case 1:
-                    hp = rand * 2;
+                    hp = rand * 2+(50*lvlC);
                     break;
                 case 2:
-                    evasion = rand * 2;
+                    evasion = rand * 2+(6*lvlC);
                     break;
                 case 3:
-                    accuracy = rand * 2;
+                    accuracy = rand * 2+(7*lvlC);
                     break;
 
             }
@@ -38,19 +40,19 @@ public class Item {
         if (rand2 >= 0.5) {
             switch (caseNumber) {
                 case 1:
-                    hp = rand * 2;
+                    hp = rand * 2+(64*lvlC);
                     break;
                 case 2:
-                    armor = rand * 2;
+                    armor = rand * 2+(15*lvlC);
                     break;
                 case 3:
-                    evasion = rand * 2;
+                    evasion = rand * 2+(6*lvlC);
                     break;
                 case 4:
-                    accuracy = rand * 2;
+                    accuracy = rand * 2+(7*lvlC);
             }
-            minDamage = rand * 1;
-            maxDamage = rand * 2;
+            minDamage = rand * 1+(10*lvlC);
+            maxDamage = rand * 2+(20*lvlC);
 
         }
         name = randName();
