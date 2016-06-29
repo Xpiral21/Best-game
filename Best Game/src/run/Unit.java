@@ -17,7 +17,7 @@ public abstract class Unit {
 	private int evasion; // percentage of miss
 	private int mana;
 	private int accuracy;
-	private int gold=1000;
+	private int gold;
 	private int level;
 
 	public Unit(String name, int maxHitPoints, int armor, int maxDamage, int minDamage, int evasion, int accuracy) {

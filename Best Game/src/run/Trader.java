@@ -4,7 +4,7 @@ public class Trader {
 	Inventory inventory = new Inventory();
 
 	public Trader() {
-		int items = (int) (Math.random() * 4) + 1;
+		int items = (int) (Math.random() * 2) + 1;
 		for (int i = 0; i < items; i++) {
 			Item item = new Item();
 			inventory.addItem(item);

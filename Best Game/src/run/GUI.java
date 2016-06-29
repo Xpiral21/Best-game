@@ -104,7 +104,7 @@ public class GUI extends JFrame {
 				}
 			}
 		});
-
+		
 		JScrollPane scrollPane = new JScrollPane();
 
 		this.textArea = new JTextArea();
