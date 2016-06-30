@@ -61,8 +61,9 @@ public abstract class Unit {
 						- (attackStrengthNormal - attackStrengthNormal * getDmgReduction() / 100) : 0;
 
 				setCurrentHitPoints(remainingHitPoints);
+				if(this instanceof Monster)
 				System.out.printf(getName() + " is hit for " + attackStrengthNormal + " HP " + getStatus() + "\n");
-				;
+				
 			}
 
 		} else if (attackType == "s") {
