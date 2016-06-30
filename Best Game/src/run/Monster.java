@@ -3,7 +3,6 @@ package run;
 public class Monster extends Unit {
 
 	Skills monsterSkills;
-
 	public Monster(String name, int maxHitPoints, int armor, int maxDamage, int minDamage, int evasion, int accuracy,
 			int level) {
 		super(name, maxHitPoints, armor, maxDamage, minDamage, evasion, accuracy);
@@ -15,9 +14,9 @@ public class Monster extends Unit {
 		this.setMinDamage((int) (this.getMinDamage() * (1+ (0.1*level))));
 		this.setEvasion((int) (this.getEvasion() * (1+ (0.1*level))));
 		this.setArmor((int) (this.getArmor() * (1+ (0.1*level))));
-
+		this.setGold((int)((this.getGold()+10)*(1+(0.1*level))+(Math.random()*10)));
 	}
-
+	
 	@Override
 	int attack() {
 		return random.nextInt(getMaxDamage() - getMinDamage() + 1) + getMinDamage();

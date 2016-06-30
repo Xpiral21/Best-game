@@ -149,9 +149,9 @@ public class Map {
 			for (int j = 0; j < n; j++) {
 
 				random = (int) (Math.random() * 100);
-				if (random > 40) {
+				if (random > 50) {
 					map[i][j] = new EmptyRoom();
-				} else if (random > 30) {
+				} else if (random > 38) {
 					map[i][j] = new CityRoom(t);
 				} else if (random >= 0) {
 					map[i][j] = new MonsterRoom(allMonsters);
