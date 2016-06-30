@@ -74,6 +74,10 @@ public abstract class Unit {
 			setCurrentHitPoints(remainingHitPoints);
 			System.out.printf(" " + getName() + " is hit for %d HP (%s)\n", attackStrengthSkill, getStatus());
 		}
+		if(unit instanceof Monster){
+			GUI.getLabel().setText(String.valueOf(currentHitPoints));
+			
+		}
 	}
 
 	int getDmgReduction() {

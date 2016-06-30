@@ -38,6 +38,11 @@ public class GUI extends JFrame {
 	private JTextField textField;
 	private PrintStream standardOut;
 	static InputStream is;
+	public static JLabel getLabel() {
+		return label;
+	}
+
+	private static JLabel label;
 	private static String stdin;
 	private static JList<Item> list=new JList<Item>();
 	private static JList<Item> list_1=new JList<Item>();
@@ -75,7 +80,7 @@ public class GUI extends JFrame {
 
 		JLabel lblHp = new JLabel("HP");
 
-		JLabel label = new JLabel("0");
+		label = new JLabel(String.valueOf(MainThread.getHero().getCurrentHitPoints()));
 
 		JLabel lblAtk = new JLabel("ATK");
 
@@ -173,6 +178,8 @@ public class GUI extends JFrame {
 		panel.setLayout(gl_panel);
 		contentPane.setLayout(gl_contentPane);
 	}
+
+	
 
 	public static JList<Item> getList() {
 		return list;
