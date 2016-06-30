@@ -8,9 +8,9 @@ public class Trade {
 		System.out.println("Type a number higher than the highest item number to Exit the shop");
 		System.out.println("Your current gold is : " + h.getGold());
 		System.out.println();
-		System.out.println(t.inventory);
+		System.out.println(t.gg);
 		int itemNumber = 0;
-		while (itemNumber >= 0 && itemNumber < t.inventory.getSize()) {
+		while (itemNumber >= 0 && itemNumber < t.gg.size()) {
 			try {
 				synchronized (Main.gigi) {
 					Main.gigi.wait();
@@ -30,8 +30,8 @@ public class Trade {
 				}
 				else
 					System.out.println("Sucks to be you!");
-			} else if (itemNumber >= 0 && itemNumber < t.inventory.getSize()) {
-				if (h.getGold() >= t.inventory.getItem(itemNumber).getValue()) {
+			} else if (itemNumber >= 0 && itemNumber < t.gg.size()) {
+				if (h.getGold() >= t.gg.get(itemNumber).getValue()) {
 					t.buyItem(itemNumber, h);
 					h.equipItem(h.inventory.getItem(h.inventory.getSize() - 1));
 					System.out.println(h);

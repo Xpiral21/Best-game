@@ -1,21 +1,23 @@
 package run;
 
+import java.util.ArrayList;
+
 public class Trader {
-	Inventory inventory = new Inventory();
+	ArrayList<Item> gg = new ArrayList<>();
 
 	public Trader() {
 		int items = (int) (Math.random() * 2) + 1;
 		for (int i = 0; i < items; i++) {
 			Item item = new Item();
-			inventory.addItem(item);
+			gg.add(item);
 		}
 	}
 
 	public void buyItem(int i, Hero hero) {
 		try {
-			if (i < inventory.getSize()) {
-				Item copy = inventory.getItem(i);
-				inventory.removeItem(i);
+			if (i < gg.size()) {
+				Item copy = gg.get(i);
+				gg.remove(i);
 				hero.inventory.addItem(copy);
 				hero.setGold(hero.getGold() - copy.getValue());
 			}
