@@ -44,8 +44,9 @@ public class Battle {
 			player.setGold(player.getGold() + monster.getGold());
 			player.setCurrentExperiencePoints((int) (player.getCurrentExperiencePoints() + Math.random() * 110));
 			player.levelUP();
-			System.out.println("Current XP : " + player.getCurrentExperiencePoints() + "/"
-					+ player.getCurrentExperienceRequiered());
+			GUI.getProgressBar_1().setValue(player.getCurrentExperiencePoints());
+//			System.out.println("Current XP : " + player.getCurrentExperiencePoints() + "/"
+//					+ player.getCurrentExperienceRequiered());
 
 		}
 

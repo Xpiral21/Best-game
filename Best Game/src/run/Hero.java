@@ -110,6 +110,7 @@ public class Hero extends Unit {
 			int copy = currentExperienceRequiered;
 			currentExperiencePoints = currentExperiencePoints - currentExperienceRequiered;
 			currentExperienceRequiered = (int) (previousExperienceRequiered * 1.3);
+			GUI.getProgressBar_1().setMaximum(currentExperienceRequiered);
 			previousExperienceRequiered = copy;
 			this.setLevel(this.getLevel() + 1);
 			System.out.println("You are now Level " + this.getLevel());

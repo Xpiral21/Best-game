@@ -79,6 +79,11 @@ public abstract class Unit {
 			GUI.getLabel().setText(String.valueOf(currentHitPoints));
 			
 		}
+		if(unit instanceof Monster){
+			GUI.getProgressBar().setValue(currentHitPoints);
+			
+			
+		}
 	}
 
 	int getDmgReduction() {
