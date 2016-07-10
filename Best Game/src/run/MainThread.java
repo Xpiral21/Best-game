@@ -3,7 +3,7 @@ package run;
 import java.io.IOException;
 
 public class MainThread extends Thread {
-	private static Hero hero = new Hero(GUI.getStdin(), 2500, 0, 200, 100, 10, 10);;
+	private static Hero hero = new Hero(GUI.getStdin(), 2500, 0, 300, 100, 10, 10);;
 
 	public void run() {
 		System.out.print("Enter your name:");

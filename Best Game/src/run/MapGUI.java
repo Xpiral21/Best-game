@@ -51,7 +51,7 @@ public class MapGUI extends JFrame {
 				if (hero.getVerticalLocation() == j && hero.getHorizontalLocation() == i) {
 					panel.add(new JLabel("H"));
 				} else
-					panel.add(new JTextField("" + map.getRoom(j, i)));
+					panel.add(new JLabel("" + map.getRoom(j, i)));
 			}
 		}
 		this.setContentPane(panel);
