@@ -162,6 +162,7 @@ public class Map {
 		int j = (int) (Math.random() * 9) + 1;
 		map[i][j] = new BossRoom(allBosses);
 		System.out.println("A terrible foe is at X " + i + " Y " + j);
+		
 	}
 
 	public Room getRoom(int x, int y) {

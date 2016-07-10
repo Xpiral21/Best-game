@@ -2,16 +2,17 @@ package run;
 
 public class CityRoom extends Room {
 
-    private Trader trader;
+	private Trader trader;
 
-    CityRoom(Trader t) {
-        super("You enter a city");
-        trader = t;
+	CityRoom(Trader t) {
+		super("You enter a city");
+		trader = t;
 
-    }
+	}
 
-    public String toString() {
-        return "3";
-    }
+	@Override
+	public String toString() {
+		return "3";
+	}
 
 }

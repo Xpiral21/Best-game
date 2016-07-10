@@ -20,7 +20,7 @@ public class MainThread extends Thread {
 		//SimplePlayer music = new SimplePlayer();
 		int mapLevel=1;
 		Map m = new Map(10,mapLevel);
-
+		MapGUI g= new MapGUI(m);
 		while (hero.getCurrentHitPoints() > 0) {
 			System.out
 					.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
@@ -44,6 +44,7 @@ public class MainThread extends Thread {
 					System.out.println(temp.getMonster().getName() + " is dead,you delve deeper into the dungeon.");
 					mapLevel++;
 					m = new Map(10,mapLevel);
+					g= new MapGUI(m);
 					hero.setCurrentHitPoints(hero.getMaxHitPoints());}
 				}
 				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof CityRoom) {
