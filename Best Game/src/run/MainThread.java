@@ -3,7 +3,8 @@ package run;
 import java.io.IOException;
 
 public class MainThread extends Thread {
-	private static Hero hero=new Hero(GUI.getStdin(), 2500, 0, 200, 100, 10, 10);;
+	private static Hero hero = new Hero(GUI.getStdin(), 2500, 0, 200, 100, 10, 10);;
+
 	public void run() {
 		System.out.print("Enter your name:");
 		try {
@@ -17,11 +18,13 @@ public class MainThread extends Thread {
 		}
 		hero.setName(GUI.getStdin());
 		System.out.println(" " + hero.getName());
-		//SimplePlayer music = new SimplePlayer();
-		int mapLevel=1;
-		Map m = new Map(10,mapLevel);
-		MapGUI g= new MapGUI(m);
+		// SimplePlayer music = new SimplePlayer();
+		int mapLevel = 1;
+		Map m = new Map(6, mapLevel);
+		MapGUI mapGUI = new MapGUI(m, hero);
 		while (hero.getCurrentHitPoints() > 0) {
+			mapGUI.update();
+			mapGUI.repaint();
 			System.out
 					.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
 			try {
@@ -39,13 +42,15 @@ public class MainThread extends Thread {
 				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof BossRoom) {
 					BossRoom temp = (BossRoom) (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()));
 					Battle b = new Battle(hero, temp.getMonster());
-					if(!temp.getMonster().isAlive()){
-					System.out.println("Current Gold : " + hero.getGold());
-					System.out.println(temp.getMonster().getName() + " is dead,you delve deeper into the dungeon.");
-					mapLevel++;
-					m = new Map(10,mapLevel);
-					g= new MapGUI(m);
-					hero.setCurrentHitPoints(hero.getMaxHitPoints());}
+					if (!temp.getMonster().isAlive()) {
+						System.out.println("Current Gold : " + hero.getGold());
+						System.out.println(temp.getMonster().getName() + " is dead,you delve deeper into the dungeon.");
+						mapLevel++;
+						m = new Map(10, mapLevel);
+						mapGUI.hide();
+						mapGUI = new MapGUI(m, hero);
+						hero.setCurrentHitPoints(hero.getMaxHitPoints());
+					}
 				}
 				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof CityRoom) {
 					Trader t = new Trader();
@@ -59,9 +64,9 @@ public class MainThread extends Thread {
 		System.out.println("YOU LOST!");
 		// SQL.getHighScores();
 	}
+
 	public static Hero getHero() {
 		return hero;
 	}
-	
 
 }
