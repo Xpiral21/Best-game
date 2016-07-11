@@ -11,24 +11,28 @@ public class Trade {
 		System.out.println(t.gg);
 		int itemNumber = 0;
 		String userInput = "";
-		while (h==h) {
-			do{
-			try {
-				synchronized (Main.gigi) {
-					Main.gigi.wait();
+		while (!userInput.equals("e")) {
+			while (userInput.equals("h") == false && userInput.equals("e") == false && userInput.equals("0") == false
+					&& userInput.equals("1") == false && userInput.equals("2") == false) {
+
+				try {
+					synchronized (Main.gigi) {
+						Main.gigi.wait();
+					}
+
+				} catch (InterruptedException e1) {
+
 				}
-
-			} catch (InterruptedException e1) {
-
+				userInput = GUI.getStdin();
 			}
-			userInput = GUI.getStdin();
-			}while(userInput.equals("h")&&userInput.equals("e"));
-			if(userInput.compareTo("e")==0)
-				break;			
+
+			if (userInput.compareTo("e") == 0)
+				break;
 			if (userInput.contains("h")) {
 				if (h.getGold() >= 50) {
 					h.setGold(h.getGold() - 50);
 					h.setCurrentHitPoints(h.getMaxHitPoints());
+					System.out.println("You regain your strength!");
 				} else
 					System.out.println("Sucks to be you!");
 			} else if (itemNumber >= 0 && itemNumber < t.gg.size()) {
@@ -39,6 +43,7 @@ public class Trade {
 				} else
 					System.out.println("Shooo peasant!");
 			}
+			userInput = "";
 		}
 	}
 }

@@ -6,7 +6,7 @@ public class Trader {
 	ArrayList<Item> gg = new ArrayList<>();
 
 	public Trader() {
-		int items = (int) (Math.random() * 2) + 1;
+		int items = 3;
 		for (int i = 0; i < items; i++) {
 			Item item = new Item();
 			gg.add(item);

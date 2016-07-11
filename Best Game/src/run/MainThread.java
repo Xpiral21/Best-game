@@ -17,6 +17,7 @@ public class MainThread extends Thread {
 
 		}
 		hero.setName(GUI.getStdin());
+		hero.setGold(300);
 		System.out.println(" " + hero.getName());
 		// SimplePlayer music = new SimplePlayer();
 		int mapLevel = 1;
