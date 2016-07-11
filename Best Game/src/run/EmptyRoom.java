@@ -7,7 +7,7 @@ public class EmptyRoom extends Room {
     }
 
     public String toString() {
-        return "0";
+        return "E";
     }
 
 }

@@ -12,7 +12,7 @@ public class CityRoom extends Room {
 
 	@Override
 	public String toString() {
-		return "3";
+		return "T";
 	}
 
 }

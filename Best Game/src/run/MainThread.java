@@ -43,6 +43,7 @@ public class MainThread extends Thread {
 					BossRoom temp = (BossRoom) (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()));
 					Battle b = new Battle(hero, temp.getMonster());
 					if (!temp.getMonster().isAlive()) {
+						
 						System.out.println("Current Gold : " + hero.getGold());
 						System.out.println(temp.getMonster().getName() + " is dead,you delve deeper into the dungeon.");
 						mapLevel++;

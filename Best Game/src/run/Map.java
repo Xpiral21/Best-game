@@ -169,4 +169,8 @@ public class Map {
 		return map[x][y];
 	}
 
+	public void setRoom(Room[][] map) {
+		this.map = map;
+	}
+
 }

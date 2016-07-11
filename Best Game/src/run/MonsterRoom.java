@@ -24,7 +24,6 @@ public class MonsterRoom extends Room {
 
 	@Override
 	public String toString() {
-
-		return "2";
+		return "M";
 	}
 }
