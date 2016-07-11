@@ -25,6 +25,7 @@ public class MainThread extends Thread {
 		while (hero.getCurrentHitPoints() > 0) {
 			mapGUI.update();
 			mapGUI.repaint();
+			mapGUI.transferFocus();
 			System.out
 					.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
 			try {

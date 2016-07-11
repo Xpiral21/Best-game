@@ -10,7 +10,9 @@ public class Trade {
 		System.out.println();
 		System.out.println(t.gg);
 		int itemNumber = 0;
-		while (itemNumber >= 0 && itemNumber < t.gg.size()) {
+		String userInput = "";
+		while (h==h) {
+			do{
 			try {
 				synchronized (Main.gigi) {
 					Main.gigi.wait();
@@ -19,16 +21,15 @@ public class Trade {
 			} catch (InterruptedException e1) {
 
 			}
-			String userInput = GUI.getStdin();
-			if (!userInput.contains("h")) {
-				itemNumber = Integer.parseInt(userInput);
-			}
+			userInput = GUI.getStdin();
+			}while(userInput.equals("h")&&userInput.equals("e"));
+			if(userInput.compareTo("e")==0)
+				break;			
 			if (userInput.contains("h")) {
 				if (h.getGold() >= 50) {
 					h.setGold(h.getGold() - 50);
 					h.setCurrentHitPoints(h.getMaxHitPoints());
-				}
-				else
+				} else
 					System.out.println("Sucks to be you!");
 			} else if (itemNumber >= 0 && itemNumber < t.gg.size()) {
 				if (h.getGold() >= t.gg.get(itemNumber).getValue()) {
