@@ -19,8 +19,7 @@ public class Battle {
 				}
 
 			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-
+				
 			}
 			String action = GUI.getStdin();
 			if (action.equals("h")) {
@@ -40,13 +39,14 @@ public class Battle {
 			}
 		}
 		if (!monster.isAlive()) {
-			System.out.println("You stole from a dead body ...");
+			System.out.println("You stole from a dead body ... Shame!Shame!Shame! ");
 			player.setGold(player.getGold() + monster.getGold());
 			player.setCurrentExperiencePoints((int) (player.getCurrentExperiencePoints() + Math.random() * 110));
 			player.levelUP();
 			GUI.getProgressBar_1().setValue(player.getCurrentExperiencePoints());
-//			System.out.println("Current XP : " + player.getCurrentExperiencePoints() + "/"
-//					+ player.getCurrentExperienceRequiered());
+			// System.out.println("Current XP : " +
+			// player.getCurrentExperiencePoints() + "/"
+			// + player.getCurrentExperienceRequiered());
 
 		}
 

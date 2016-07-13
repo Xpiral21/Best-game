@@ -125,7 +125,7 @@ public class Hero extends Unit {
 
 	@Override
 	String getStatus() {
-		return ", your HP is " + getCurrentHitPoints();
+		return "Your HP  " + getCurrentHitPoints();
 	}
 
 	public void equipItem(Item item) {

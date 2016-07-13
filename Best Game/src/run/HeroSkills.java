@@ -5,9 +5,11 @@ public class HeroSkills implements Skills {
 	public final Random random = new Random();
 	@Override
 	public int fury(int initialAttack) {
-		
-		int newAttack=initialAttack+random.nextInt(10);
-		System.out.println("Using FURY");
+		int megaMultiplyer =(int) (Math.random()*7);
+			System.out.print("Mega multiplyer X "+megaMultiplyer);
+		double damageModifier = (10+random.nextInt(40))*megaMultiplyer;
+		int newAttack=(int) (initialAttack*(damageModifier/100));
+		System.out.println("  FURY makes you deal  "+damageModifier+"% of your total damage.");
 		return newAttack;
 	}
 

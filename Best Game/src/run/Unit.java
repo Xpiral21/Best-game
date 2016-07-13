@@ -52,20 +52,21 @@ public abstract class Unit {
 	void defend(Unit unit, String attackType) {
 		if (attackType.equals("a")) {
 			int attackStrengthNormal = unit.attack();
-			int chanceToEvade=((evasion*99)/(evasion+200)+1)-((unit.accuracy*99)/(unit.accuracy+200)+1)/10;
-			int rand=(int) (Math.random()*100);
-			if (rand<=chanceToEvade) {
+			int chanceToEvade = ((evasion * 99) / (evasion + 200) + 1)
+					- ((unit.accuracy * 99) / (unit.accuracy + 200) + 1) / 10;
+			int rand = (int) (Math.random() * 100);
+			if (rand <= chanceToEvade) {
 				System.out.println(unit.getName() + " missed.");
 			} else {
 				int remainingHitPoints = (getCurrentHitPoints() > attackStrengthNormal) ? getCurrentHitPoints()
 						- (attackStrengthNormal - attackStrengthNormal * getDmgReduction() / 100) : 0;
 
 				setCurrentHitPoints(remainingHitPoints);
-				if(this instanceof Monster)
-				System.out.printf(getName() + " is hit for " + attackStrengthNormal + " HP " + getStatus() + "\n");
-				
+				if (this instanceof Monster)
+					System.out.printf("You hit "+getName() + " for " + attackStrengthNormal + "   " + getStatus() + "\n");
+				else
+					System.out.println(unit.getName()+" hit you for " + attackStrengthNormal +"    Your hp is "+getCurrentHitPoints());
 			}
-
 		} else if (attackType == "s") {
 			HeroSkills heroSkills = new HeroSkills();
 			int attackStrengthSkill = heroSkills.fury(getMaxDamage());
@@ -75,14 +76,13 @@ public abstract class Unit {
 			setCurrentHitPoints(remainingHitPoints);
 			System.out.printf(" " + getName() + " is hit for %d HP (%s)\n", attackStrengthSkill, getStatus());
 		}
-		if(unit instanceof Monster){
+		if (unit instanceof Monster) {
 			GUI.getLabel().setText(String.valueOf(currentHitPoints));
-			
+
 		}
-		if(unit instanceof Monster){
+		if (unit instanceof Monster) {
 			GUI.getProgressBar().setValue(currentHitPoints);
-			
-			
+
 		}
 	}
 
