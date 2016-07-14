@@ -86,13 +86,12 @@ public class Hero extends Unit {
 
 	@Override
 	void heal() {
-		if (numPotions > 0) {
-			setCurrentHitPoints(getCurrentHitPoints() + 20);
-			System.out.println(getName() + "was healed");
-			numPotions--;
-		} else {
-			System.out.println("You don't have any potions");
-		}
+			this.setCurrentHitPoints(this.getCurrentHitPoints()+this.getMaxHitPoints()/10);
+			if(this.getCurrentHitPoints()>this.getMaxHitPoints())
+				this.setCurrentHitPoints(this.getMaxHitPoints());
+			System.out.println("You healed for 10% of your max life");
+			GUI.getProgressBar().setValue(this.getCurrentHitPoints());
+		
 	}
 
 	@Override

@@ -158,7 +158,7 @@ public class Map {
 			}
 		}
 
-		map[(int) (Math.random() * mapSize) + 1][(int) (Math.random() * mapSize) + 1] = new BossRoom(allBosses);
+		map[(int) (Math.random() *n)][(int) (Math.random() *n)] = new BossRoom(allBosses);
 
 		
 	}
