@@ -47,7 +47,7 @@ public class Map {
 		if (westPossible) {
 			System.out.print(" West (w)");
 		}
-		System.out.print(" ? ");
+		System.out.println(" ? ");
 
 		try {
 			synchronized (Main.gigi) {
@@ -74,7 +74,6 @@ public class Map {
 	public void NewMap(int n) {
 		ArrayList<Monster> allMonsters = new ArrayList<>();
 		ArrayList<Monster> allBosses = new ArrayList<>();
-		System.out.println(level);
 		Monster monster1 = new Monster("Golem", 800, 0, 75, 20, 10, 10,level);
 		Monster monster2 = new Monster("Gnoll", 800, 0, 75, 20, 10, 10,level);
 		Monster monster3 = new Monster("Duck", 400, 0, 150, 50, 20, 10,level);
@@ -158,10 +157,9 @@ public class Map {
 				}
 			}
 		}
-		int i = (int) (Math.random() * mapSize) + 1;
-		int j = (int) (Math.random() * mapSize) + 1;
-		map[i][j] = new BossRoom(allBosses);
-		System.out.println("A terrible foe is at X " + i + " Y " + j);
+
+		map[(int) (Math.random() * mapSize) + 1][(int) (Math.random() * mapSize) + 1] = new BossRoom(allBosses);
+
 		
 	}
 

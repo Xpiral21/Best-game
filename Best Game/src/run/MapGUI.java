@@ -51,8 +51,8 @@ public class MapGUI extends JFrame {
 
 		setContentPane(panel);
 		setVisible(true);
-		setSize(350, 350);
-		setLocation(1000, 500);
+		setSize(300, 300);
+		setLocation(1050, 200);
 	}
 
 	public void update() {

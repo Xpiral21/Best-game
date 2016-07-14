@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class Battle {
 
 	public Battle(Hero player, Monster monster) throws IOException {
-		System.out.println("\n" + "You encounter " + monster.getDescription() + "\n");
+		System.out.println("\n" + "You encounter " + monster.getName() + ".\n");
 		System.out.println("Battle starts (" + player.getStatus() + " VS " + monster.getStatus() + ")");
 
 		System.out.print("Attack (a),use skill (s), heal (h) or run away (r)? ");

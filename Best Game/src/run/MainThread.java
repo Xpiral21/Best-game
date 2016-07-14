@@ -18,7 +18,7 @@ public class MainThread extends Thread {
 		}
 		hero.setName(GUI.getStdin());
 		hero.setGold(300);
-		System.out.println(" " + hero.getName());
+		System.out.println( hero.getName());
 		// SimplePlayer music = new SimplePlayer();
 		int mapLevel = 1;
 		Map m = new Map(6, mapLevel);
@@ -27,8 +27,8 @@ public class MainThread extends Thread {
 			mapGUI.update();
 			mapGUI.repaint();
 			mapGUI.transferFocus();
-			System.out
-					.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
+			//System.out
+				//	.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
 			try {
 				m.movePlayer(hero);
 				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof MonsterRoom) {
@@ -49,7 +49,7 @@ public class MainThread extends Thread {
 						System.out.println("Current Gold : " + hero.getGold());
 						System.out.println(temp.getMonster().getName() + " is dead,you delve deeper into the dungeon.");
 						mapLevel++;
-						m = new Map(10, mapLevel);
+						m = new Map(6, mapLevel);
 						mapGUI.hide();
 						mapGUI = new MapGUI(m, hero);
 						hero.setCurrentHitPoints(hero.getMaxHitPoints());

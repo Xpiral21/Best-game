@@ -147,25 +147,24 @@ public class Item {
 	public String toString() {
 		String str = name + System.lineSeparator();
 		if (hp > 0) {
-			str = str + "LIFE : " + hp + System.lineSeparator();
+			str = str + "LIFE : " + hp + "  ";
 		}
 		if (armor > 0) {
-			str = str + "ARMOR : " + armor + System.lineSeparator();
+			str = str + "ARMOR : " + armor + "  ";
 		}
 		if (evasion > 0) {
-			str = str + "EVASION : " + evasion + System.lineSeparator();
+			str = str + "EVASION : " + evasion + "  ";
 		}
 		if (accuracy > 0) {
-			str = str + "ACCURACY : " + accuracy + System.lineSeparator();
+			str = str + "ACCURACY : " + accuracy + "  ";
 		}
 		if (minDamage > 0) {
-			str = str + "MAXIMUM DAMAGE : " + maxDamage + System.lineSeparator();
+			str = str + "DPS : " +( maxDamage +minDamage)/2+ "  ";
 		}
-		if (maxDamage > 0) {
-			str = str + "MIN DAMAGE : " + minDamage + System.lineSeparator();
-		}
-		str = str + "Gold Value : " + value + System.lineSeparator();
 
+		
+		str = str + "Gold Value : " + value + "  ";
+		str = str + System.lineSeparator();
 		return str;
 	}
 }

@@ -33,6 +33,7 @@ public class Trade {
 					h.setGold(h.getGold() - 50);
 					h.setCurrentHitPoints(h.getMaxHitPoints());
 					System.out.println("You regain your strength!");
+					GUI.getProgressBar().setValue(h.getCurrentHitPoints());
 				} else
 					System.out.println("Sucks to be you!");
 			} else if (itemNumber >= 0 && itemNumber < t.gg.size()) {

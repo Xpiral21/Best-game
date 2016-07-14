@@ -102,9 +102,9 @@ public class GUI extends JFrame {
 
 		label = new JLabel(String.valueOf(MainThread.getHero().getCurrentHitPoints()));
 
-		JLabel lblAtk = new JLabel("ATK");
+		JLabel lblAtk = new JLabel("ATK " );
 
-		JLabel label_1 = new JLabel("0");
+		JLabel label_1 = new JLabel(""+(MainThread.getHero().getMaxDamage()+MainThread.getHero().getMinDamage())/2);
 
 		
 		
