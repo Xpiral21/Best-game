@@ -30,7 +30,6 @@ import javax.swing.JList;
 import javax.swing.border.BevelBorder;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
-import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.JProgressBar;
 
