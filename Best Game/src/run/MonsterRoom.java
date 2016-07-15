@@ -11,8 +11,8 @@ public class MonsterRoom extends Room {
 		monster = mons.get((int) (Math.random() * mons.size()));
 	}
 
-	public boolean roomIsClear(Monster m) {
-		if (m.isAlive()) {
+	public boolean roomIsClear() {
+		if (monster.isAlive()) {
 			return true;
 		}
 		return false;
