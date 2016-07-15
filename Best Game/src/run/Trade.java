@@ -4,16 +4,15 @@ public class Trade {
 	public Trade(Hero h, Trader t) {
 		System.out.println();
 		System.out.println(
-				"You have encountered a Trader , you can buy items by typing their number,or heal by pressing 'h'");
-		System.out.println("Type a number higher than the highest item number to Exit the shop");
+				"You have encountered a Trader , you can buy items by typing 1 2 or 3, heal by pressing 'h'or 'e' to exit ");
 		System.out.println("Your current gold is : " + h.getGold());
 		System.out.println();
 		System.out.println(t.gg);
 		int itemNumber = 0;
 		String userInput = "";
 		while (!userInput.equals("e")) {
-			while (userInput.equals("h") == false && userInput.equals("e") == false && userInput.equals("0") == false
-					&& userInput.equals("1") == false && userInput.equals("2") == false) {
+			while (userInput.equals("h") == false && userInput.equals("e") == false && userInput.equals("1") == false
+					&& userInput.equals("2") == false && userInput.equals("3") == false) {
 
 				try {
 					synchronized (Main.gigi) {
@@ -36,9 +35,11 @@ public class Trade {
 					GUI.getProgressBar().setValue(h.getCurrentHitPoints());
 				} else
 					System.out.println("Sucks to be you!");
-			} else if (itemNumber >= 0 && itemNumber < t.gg.size()) {
-				if (h.getGold() >= t.gg.get(itemNumber).getValue()) {
-					t.buyItem(itemNumber, h);
+			}
+			itemNumber = Integer.parseInt(userInput);
+			if (itemNumber <= t.gg.size()) {
+				if (h.getGold() >= t.gg.get(itemNumber-1).getValue()) {
+					t.buyItem(itemNumber-1, h);
 					h.equipItem(h.inventory.getItem(h.inventory.getSize() - 1));
 					System.out.println(h);
 				} else
