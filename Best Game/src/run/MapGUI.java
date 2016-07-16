@@ -32,6 +32,7 @@ public class MapGUI extends JFrame {
 					TextField textField = new TextField();
 					textField.setEditable(false);
 					textField.setText("" + map.getRoom(j, i));
+					
 					if (map.getRoom(j, i) instanceof MonsterRoom) {
 						textField.setBackground(Color.DARK_GRAY);
 					}
@@ -73,8 +74,13 @@ public class MapGUI extends JFrame {
 					textField.setEditable(false);
 					textField.setText("" + map.getRoom(j, i));
 					if (map.getRoom(j, i) instanceof MonsterRoom) {
-						textField.setBackground(Color.BLACK);
-					}
+						MonsterRoom tempR=(MonsterRoom) map.getRoom(j, i);
+						if(tempR.roomIsClear()){
+							textField.setBackground(Color.BLACK);
+						}else{
+						
+						textField.setBackground(Color.GRAY);
+					}}
 					if (map.getRoom(j, i) instanceof BossRoom) {
 						textField.setBackground(Color.RED);
 					}

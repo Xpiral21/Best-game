@@ -21,7 +21,7 @@ public class MainThread extends Thread {
 		System.out.println( hero.getName());
 		// SimplePlayer music = new SimplePlayer();
 		int mapLevel = 1;
-		Map m = new Map(6, mapLevel);
+		Map m = new Map(10, mapLevel);
 		MapGUI mapGUI = new MapGUI(m, hero);
 		while (hero.getCurrentHitPoints() > 0) {
 			mapGUI.update();
