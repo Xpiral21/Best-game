@@ -36,14 +36,16 @@ public class Trade {
 				} else
 					System.out.println("Sucks to be you!");
 			}
-			itemNumber = Integer.parseInt(userInput);
-			if (itemNumber <= t.gg.size()) {
-				if (h.getGold() >= t.gg.get(itemNumber-1).getValue()) {
-					t.buyItem(itemNumber-1, h);
-					h.equipItem(h.inventory.getItem(h.inventory.getSize() - 1));
-					System.out.println(h);
-				} else
-					System.out.println("Shooo peasant!");
+			if (userInput.matches(".*\\d+.*")) {
+				itemNumber = Integer.parseInt(userInput);
+				if (itemNumber <= t.gg.size()) {
+					if (h.getGold() >= t.gg.get(itemNumber - 1).getValue()) {
+						t.buyItem(itemNumber - 1, h);
+						h.equipItem(h.inventory.getItem(h.inventory.getSize() - 1));
+						System.out.println(h);
+					} else
+						System.out.println("Shooo peasant!");
+				}
 			}
 			userInput = "";
 		}
