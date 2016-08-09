@@ -6,8 +6,8 @@ public class MainThread extends Thread {
 	private static Hero hero = new Hero(GUI.getStdin(), 2500, 0, 300, 100, 10, 10);;
 
 	public void run() {
-		System.out.print("Enter your name:");
-		try {
+		System.out.print("Your name is :");
+/*		try {
 			synchronized (Main.gigi) {
 				Main.gigi.wait();
 			}
@@ -15,8 +15,8 @@ public class MainThread extends Thread {
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 
-		}
-		hero.setName(GUI.getStdin());
+		}*/
+		hero.setName("Gigi");
 		hero.setGold(300);
 		System.out.println( hero.getName());
 		// SimplePlayer music = new SimplePlayer();
@@ -26,7 +26,7 @@ public class MainThread extends Thread {
 		while (hero.getCurrentHitPoints() > 0) {
 			mapGUI.update();
 			mapGUI.repaint();
-			mapGUI.transferFocus();
+
 			//System.out
 				//	.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
 			try {
