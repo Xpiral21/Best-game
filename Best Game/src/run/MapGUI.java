@@ -26,7 +26,7 @@ public class MapGUI extends JFrame {
 					TextField textField = new TextField();
 					textField.setEditable(false);
 					textField.setBackground(Color.CYAN);
-					textField.setText("HERO");
+					textField.setText("H");
 					panel.add(textField);
 				} else {
 					TextField textField = new TextField();
@@ -67,7 +67,7 @@ public class MapGUI extends JFrame {
 					TextField textField = new TextField();
 					textField.setEditable(false);
 					textField.setBackground(Color.CYAN);
-					textField.setText("HERO");
+					textField.setText("H");
 					panel.add(textField);
 				} else {
 					TextField textField = new TextField();

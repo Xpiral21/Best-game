@@ -26,7 +26,7 @@ public class MainThread extends Thread {
 		System.out.println( hero.getName());
 		// SimplePlayer music = new SimplePlayer();
 		int mapLevel = 1;
-		m = new Map(10, mapLevel);
+		m = new Map(9, mapLevel);
 		try {
 			EventQueue.invokeAndWait(new Runnable() {
 				public void run() {
@@ -49,6 +49,9 @@ public class MainThread extends Thread {
 				//	.println("You are at :  X " + hero.getVerticalLocation() + "  Y  " + hero.getHorizontalLocation());
 			try {
 				m.movePlayer(hero);
+				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof EmptyRoom){
+					System.out.println("This room is empty as fuck.");
+				}
 				if (m.getRoom(hero.getVerticalLocation(), hero.getHorizontalLocation()) instanceof MonsterRoom) {
 					MonsterRoom temp = (MonsterRoom) (m.getRoom(hero.getVerticalLocation(),
 							hero.getHorizontalLocation()));
@@ -67,7 +70,7 @@ public class MainThread extends Thread {
 						System.out.println("Current Gold : " + hero.getGold());
 						System.out.println(temp.getMonster().getName() + " is dead,you delve deeper into the dungeon.");
 						mapLevel++;
-						m = new Map(6, mapLevel);
+						m = new Map(9, mapLevel);
 						mapGUI.hide();
 						mapGUI = new MapGUI(m, hero);
 						hero.setCurrentHitPoints(hero.getMaxHitPoints());
