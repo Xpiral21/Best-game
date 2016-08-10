@@ -55,7 +55,6 @@ public class Map {
 			}
 
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 
 		}
 
