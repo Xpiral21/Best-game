@@ -22,8 +22,9 @@ public class Main {
 					}
 				}
 			});
-		} catch (InvocationTargetException | InterruptedException e1) {
-			e1.printStackTrace();
+		} catch (InvocationTargetException | InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		t = new MainThread();
 		t.start();
