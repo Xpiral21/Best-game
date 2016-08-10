@@ -19,6 +19,9 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
+
+import javazoom.jl.decoder.JavaLayerException;
+
 import javax.swing.JButton;
 
 public class GUI extends JFrame {
@@ -31,6 +34,8 @@ public class GUI extends JFrame {
 	static JProgressBar progressBar_1;
 	static JList<Item> list_1;
 	static JList<Item> list;
+	int count=0;
+	int count2=0;
 
 	public static JProgressBar getProgressBar_1() {
 		return progressBar_1;
@@ -175,8 +180,28 @@ public class GUI extends JFrame {
 		JButton btnNewButton_1 = new JButton("Drop Item");
 		
 		JButton btnNewButton_2 = new JButton("Music Off");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(count2==0){
+				Main.getSoundToPlay().pause();
+				count2=1;
+				count=1;
+				}	
+					
+				
+			}});
 		
 		JButton btnMusicOn = new JButton("Music on");
+		btnMusicOn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (count!=0){
+				Main.getSoundToPlay().play();
+				count=0;
+				count2=0;
+				}
+			}
+		});
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
