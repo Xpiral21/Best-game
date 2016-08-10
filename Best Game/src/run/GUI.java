@@ -1,37 +1,25 @@
 package run;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
-import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.ListModel;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.border.BevelBorder;
-import javax.swing.JTextField;
-import javax.swing.JScrollPane;
-import javax.swing.Box;
+import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class GUI extends JFrame {
 	private static JTextArea textArea;
@@ -41,6 +29,8 @@ public class GUI extends JFrame {
 	static InputStream is;
 	static JProgressBar progressBar;
 	static JProgressBar progressBar_1;
+	static JList<Item> list_1;
+	static JList<Item> list;
 
 	public static JProgressBar getProgressBar_1() {
 		return progressBar_1;
@@ -64,8 +54,6 @@ public class GUI extends JFrame {
 
 	private static JLabel label;
 	private static String stdin;
-	private static JList<Item> list = new JList<Item>();
-	private static JList<Item> list_1 = new JList<Item>();
 
 	/**
 	 * Launch the application.
@@ -88,7 +76,7 @@ public class GUI extends JFrame {
 	 */
 	public GUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 951, 678);
+		setBounds(100, 100, 970, 678);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -106,9 +94,7 @@ public class GUI extends JFrame {
 		JLabel label_1 = new JLabel(
 				"" + (MainThread.getHero().getMaxDamage() + MainThread.getHero().getMinDamage()) / 2);
 
-		getList().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 
-		getList_1().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 
 		textField = new JTextField();
 		textField.setColumns(10);
@@ -175,57 +161,120 @@ public class GUI extends JFrame {
 						.addComponent(progressBar_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 								GroupLayout.PREFERRED_SIZE)));
 		panel_1.setLayout(gl_panel_1);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		
+		JLabel lblInventory = new JLabel("Inventory");
+		
+		JLabel lblEquiped = new JLabel("Equipped Items");
+		
+		JButton btnNewButton = new JButton("Equip Item");
+		
+		JButton btnNewButton_1 = new JButton("Drop Item");
+		
+		JButton btnNewButton_2 = new JButton("Music Off");
+		
+		JButton btnMusicOn = new JButton("Music on");
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup().addGap(10)
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false).addComponent(scrollPane)
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
-						.addGap(18)
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel.createSequentialGroup().addGap(31)
-										.addComponent(label, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-										.addContainerGap(274, Short.MAX_VALUE))
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
+						.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(btnNewButton)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnNewButton_1)
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(btnMusicOn)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnNewButton_2))
+						.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+							.addGap(10)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(scrollPane)
+								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(18)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(31)
+									.addComponent(label, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
 								.addComponent(lblHp, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblAtk, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_panel.createSequentialGroup().addGap(29).addComponent(label_1,
-										GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
-								.addComponent(list, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
-								.addComponent(list_1, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
-				.createSequentialGroup().addGap(11)
-				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(29)
+									.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)))
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addGroup(gl_panel.createSequentialGroup()
-								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 492, GroupLayout.PREFERRED_SIZE)
-								.addGap(11).addComponent(textField, GroupLayout.PREFERRED_SIZE,
-										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGap(18)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 372, GroupLayout.PREFERRED_SIZE)
+								.addComponent(scrollPane_2, GroupLayout.PREFERRED_SIZE, 373, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblInventory)
+								.addComponent(lblEquiped))
+							.addGap(12))))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(11)
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+						.addComponent(scrollPane_2, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_panel.createSequentialGroup()
-								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(label)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addComponent(label)
 										.addComponent(lblHp))
-								.addGap(6)
-								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(lblAtk)
+									.addGap(6)
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblAtk)
 										.addComponent(label_1))
-								.addGap(18)
-								.addComponent(list, GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE)
-								.addGap(18).addComponent(list_1, GroupLayout.PREFERRED_SIZE, 216,
-										GroupLayout.PREFERRED_SIZE)))
-				.addContainerGap()));
+									.addGap(17)
+									.addComponent(lblInventory)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 214, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(lblEquiped)
+									.addGap(176))
+								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 492, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnNewButton)
+						.addComponent(btnNewButton_1)
+						.addComponent(btnNewButton_2)
+						.addComponent(btnMusicOn))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		
+		list_1 = new JList<Item>();
+		scrollPane_2.setViewportView(list_1);
+		
+		list = new JList<Item>();
+		scrollPane_1.setViewportView(list);
 		panel.setLayout(gl_panel);
 		contentPane.setLayout(gl_contentPane);
-	}
-
-	public static JList<Item> getList() {
-		return list;
-	}
-
-	public static void setList(JList<Item> list) {
-		GUI.list = list;
 	}
 
 	public static JList<Item> getList_1() {
 		return list_1;
 	}
 
-	public static void setList_1(JList<Item> list_1) {
-		GUI.list_1 = list_1;
+	public void setList_1(JList<Item> list_1) {
+		this.list_1 = list_1;
+	}
+
+	public static JList<Item> getList() {
+		return list;
+	}
+
+	public void setList(JList<Item> list) {
+		this.list = list;
 	}
 }
