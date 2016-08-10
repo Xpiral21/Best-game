@@ -25,6 +25,6 @@ public class BossRoom extends Room{
 	@Override
 	public String toString() {
 
-		return "BOSS";
+		return "B";
 	}
 }
