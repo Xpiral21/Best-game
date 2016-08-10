@@ -189,8 +189,8 @@ public class GUI extends JFrame {
 								.addComponent(lblAtk, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel.createSequentialGroup().addGap(29).addComponent(label_1,
 										GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
-								.addComponent(getList(), GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
-								.addComponent(getList_1(), GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))));
+								.addComponent(list, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+								.addComponent(list_1, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))));
 		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING).addGroup(gl_panel
 				.createSequentialGroup().addGap(11)
 				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
@@ -205,8 +205,8 @@ public class GUI extends JFrame {
 								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(lblAtk)
 										.addComponent(label_1))
 								.addGap(18)
-								.addComponent(getList(), GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE)
-								.addGap(18).addComponent(getList_1(), GroupLayout.PREFERRED_SIZE, 216,
+								.addComponent(list, GroupLayout.PREFERRED_SIZE, 245, GroupLayout.PREFERRED_SIZE)
+								.addGap(18).addComponent(list_1, GroupLayout.PREFERRED_SIZE, 216,
 										GroupLayout.PREFERRED_SIZE)))
 				.addContainerGap()));
 		panel.setLayout(gl_panel);
