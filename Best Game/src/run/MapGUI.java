@@ -17,7 +17,7 @@ public class MapGUI extends JFrame {
 		this.setTitle("Map");
 		this.hero = h;
 		this.map = map;
-		create(map, hero);
+		create(this.map, hero);
 
 		setVisible(true);
 		setSize(300, 300);
