@@ -67,15 +67,15 @@ class SoundJLayer extends JLayerPlayerPausable.PlaybackListener implements Runna
 
 	// PlaybackListener members
 
-	public void playbackStarted(JLayerPlayerPausable.PlaybackEvent playbackEvent)
-	{
-		System.out.println("playbackStarted()");
-	}
-
-	public void playbackFinished(JLayerPlayerPausable.PlaybackEvent playbackEvent)
-	{
-		System.out.println("playbackEnded()");
-	}	
+//	public void playbackStarted(JLayerPlayerPausable.PlaybackEvent playbackEvent)
+//	{
+//		System.out.println("playbackStarted()");
+//	}
+//
+//	public void playbackFinished(JLayerPlayerPausable.PlaybackEvent playbackEvent)
+//	{
+//		System.out.println("playbackEnded()");
+//	}	
 
 	// IRunnable members
 
