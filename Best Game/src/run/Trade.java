@@ -43,6 +43,8 @@ public class Trade {
 						t.buyItem(itemNumber - 1, h);
 						h.equipItem(h.inventory.getItem(h.inventory.getSize() - 1));
 						System.out.println(h);
+					System.out.println(t.gg);
+						
 					} else
 						System.out.println("Shooo peasant!");
 				}
