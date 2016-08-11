@@ -43,7 +43,7 @@ public class EquippedItems {
 	// Temporary
 	public void removeItem(String itemName) {
 		for (int i = 0; i < items.size(); i++) {
-			if (items.get(i).getName().compareTo(itemName) == 0) {
+			if (items.get(i).getName().equals(itemName)) {
 				items.remove(i);
 			}
 		}
