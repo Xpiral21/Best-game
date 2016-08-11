@@ -176,8 +176,36 @@ public class GUI extends JFrame {
 		JLabel lblEquiped = new JLabel("Equipped Items");
 		
 		JButton btnNewButton = new JButton("Equip Item");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Hero temp=MainThread.getHero();
+				int tempInt=list.getSelectedIndex();
+				if(tempInt>-1){
+					
+				temp.equipItem(temp.getInventory().getItem(tempInt));
+				}
+			}
+		});
 		
 		JButton btnNewButton_1 = new JButton("Drop Item");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			Hero temp=MainThread.getHero();
+			int tempInt=list.getSelectedIndex();
+			
+			if(tempInt>-1){
+				
+				String itemName;
+				itemName=temp.getInventory().getItem(tempInt).getName();
+				temp.getEquippedItems().removeItem(itemName);
+				}
+			if(tempInt!=-1){
+			
+			temp.getInventory().removeItem(tempInt);
+			}
+		
+			}
+		});
 		
 		JButton btnNewButton_2 = new JButton("Music Off");
 		btnNewButton_2.addActionListener(new ActionListener() {
