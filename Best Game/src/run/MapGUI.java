@@ -17,7 +17,14 @@ public class MapGUI extends JFrame {
 		this.setTitle("Map");
 		this.hero = h;
 		this.map = map;
+		create(map, hero);
 
+		setVisible(true);
+		setSize(300, 300);
+		setLocation(1050, 200);
+	}
+
+	private synchronized void create(Map map, Hero hero) {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(map.getMapSize(), map.getMapSize()));
 		for (int i = 0; i < map.getMapSize(); i++) {
@@ -32,7 +39,7 @@ public class MapGUI extends JFrame {
 					TextField textField = new TextField();
 					textField.setEditable(false);
 					textField.setText("" + map.getRoom(j, i));
-					
+
 					if (map.getRoom(j, i) instanceof MonsterRoom) {
 						textField.setBackground(Color.DARK_GRAY);
 					}
@@ -49,14 +56,11 @@ public class MapGUI extends JFrame {
 				}
 			}
 		}
-
 		setContentPane(panel);
-		setVisible(true);
-		setSize(300, 300);
-		setLocation(1050, 200);
+
 	}
 
-	public void update() {
+	public synchronized void update() {
 
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(map.getMapSize(), map.getMapSize()));
@@ -74,13 +78,14 @@ public class MapGUI extends JFrame {
 					textField.setEditable(false);
 					textField.setText("" + map.getRoom(j, i));
 					if (map.getRoom(j, i) instanceof MonsterRoom) {
-						MonsterRoom tempR=(MonsterRoom) map.getRoom(j, i);
-						if(tempR.roomIsClear()){
+						MonsterRoom tempR = (MonsterRoom) map.getRoom(j, i);
+						if (tempR.roomIsClear()) {
 							textField.setBackground(Color.BLACK);
-						}else{
-						
-						textField.setBackground(Color.GRAY);
-					}}
+						} else {
+
+							textField.setBackground(Color.GRAY);
+						}
+					}
 					if (map.getRoom(j, i) instanceof BossRoom) {
 						textField.setBackground(Color.RED);
 					}
@@ -88,7 +93,8 @@ public class MapGUI extends JFrame {
 						textField.setBackground(Color.YELLOW);
 					}
 					if (map.getRoom(j, i) instanceof EmptyRoom) {
-						textField.setBackground(Color.GRAY);}
+						textField.setBackground(Color.GRAY);
+					}
 					panel.add(textField);
 				}
 			}
